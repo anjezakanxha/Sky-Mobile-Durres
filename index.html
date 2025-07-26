@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SKY Mobile Durres - Pagesë me Keste me NOA & IUTE Credit</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    :root {
+      --primary: #154e71;
+      --secondary: #1fa2ff;
+      --accent: #25d366;
+      --accent2: #ff9d00;
+      --light: #f0f4f8;
+      --dark: #333;
+    }
+    
+    body {
+      background: linear-gradient(120deg, #eaf6fb 0%, #f7fafd 100%);
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Stilizim i qëndrueshëm i Navigacionit */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+      box-shadow: 0 2px 16px rgba(21,78,113,0.10);
+      border-radius: 0 0 24px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .logo {
+      height: 80px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    
+    .store-title {
+      font-size: 2.5rem;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+    
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    nav a.active {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .basket-icon {
+      position: relative;
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+    
+    .basket-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    
+    /* Stilizim i Përmbajtjes Kryesore */
+    .main-content {
+      flex: 1;
+    }
+    
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      overflow: hidden;
+      border-radius: 0 0 32px 32px;
+      box-shadow: 0 8px 32px rgba(21,78,113,0.12);
+      margin-bottom: 3rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    }
+    
+    .hero video, .hero img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: brightness(0.6);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      animation: fadeInUp 1s ease;
+    }
+    
+    .hero-content p {
+      font-size: 1.5rem;
+      margin-bottom: 2.5rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      animation: fadeInUp 1.2s ease;
+    }
+    
+    .hero-content .btn {
+      padding: 0.9rem 2.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      background: linear-gradient(90deg, #154e71 60%, #1fa2ff 100%);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(31,162,255,0.15);
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      animation: fadeInUp 1.4s ease;
+    }
+    
+    .hero-content .btn:hover {
+      background: linear-gradient(90deg, #1fa2ff 60%, #154e71 100%);
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(31,162,255,0.25);
+    }
+    
+    .section-title {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 3px;
+    }
+    
+    .featured-products {
+      max-width: 1200px;
+      margin: 0 auto 3rem auto;
+      padding: 2rem 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    .featured-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(21,78,113,0.1);
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #eaf6fb;
+    }
+    
+    .featured-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 32px rgba(21,78,113,0.2);
+      border-color: var(--secondary);
+      z-index: 2;
+    }
+    
+    .featured-card img {
+      width: 90%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 16px rgba(31,162,255,0.1);
+      border: 1px solid #eaf6fb;
+      transition: transform 0.3s ease;
+    }
+    
+    .featured-card:hover img {
+      transform: scale(1.05);
+    }
+    
+    .featured-card h3 {
+      margin: 0.8rem 0 0.4rem 0;
+      font-size: 1.4rem;
+      color: var(--primary);
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    
+    .featured-card p {
+      margin: 0.4rem 0;
+      color: #555;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 1.05rem;
+      text-align: center;
+      min-height: 60px;
+    }
+    
+    .featured-card .buy-btn {
+      margin-top: 1.2rem;
+      padding: 0.7rem 1.8rem;
+      background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(31,162,255,0.1);
+      text-decoration: none;
+      display: inline-block;
+      letter-spacing: 1px;
+      font-size: 1.1rem;
+    }
+    
+    .featured-card .buy-btn:hover {
+      background: linear-gradient(90deg, var(--secondary) 60%, var(--primary) 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(31,162,255,0.2);
+    }
+    
+    .about-section, .contact-section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(21,78,113,0.08);
+      padding: 3rem;
+      text-align: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    
+    .about-section h2, .contact-section h2 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+    
+    .about-section p, .contact-section p {
+      font-size: 1.15rem;
+      color: #444;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    
+    .contact-section a {
+      color: var(--secondary);
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+    
+    .contact-section a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--secondary);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .contact-section a:hover {
+      color: var(--primary);
+    }
+    
+    .contact-section a:hover::after {
+      transform: scaleX(1);
+    }
+    
+    .view-all {
+      text-align: center;
+      margin: 3rem 0;
+    }
+    
+    .view-all .btn {
+      padding: 0.9rem 2.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(31,162,255,0.15);
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+    }
+    
+    .view-all .btn:hover {
+      background: linear-gradient(90deg, var(--secondary) 60%, var(--primary) 100%);
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(31,162,255,0.25);
+    }
+    
+    /* Stilizim i qëndrueshëm i Futëres */
+    footer {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      margin-top: 4rem;
+      border-radius: 24px 24px 0 0;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: opacity 0.3s;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    
+    .footer-links a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+    
+    .copyright {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Animacione */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+    
+    .featured-card {
+      animation: fadeInUp 0.6s ease-out;
+      animation-fill-mode: both;
+    }
+    
+    .featured-card:nth-child(1) { animation-delay: 0.1s; }
+    .featured-card:nth-child(2) { animation-delay: 0.2s; }
+    .featured-card:nth-child(3) { animation-delay: 0.3s; }
+    .featured-card:nth-child(4) { animation-delay: 0.4s; }
+    .featured-card:nth-child(5) { animation-delay: 0.5s; }
+    .featured-card:nth-child(6) { animation-delay: 0.6s; }
+    .featured-card:nth-child(7) { animation-delay: 0.7s; }
+    
+    /* Stile të reja për shiritat reklamë dhe pagesën me keste */
+    .promo-banner {
+      background: linear-gradient(90deg, var(--accent2) 0%, #ffce00 100%);
+      color: var(--primary);
+      text-align: center;
+      padding: 0.8rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 99;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .promo-banner .close-btn {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(21, 78, 113, 0.3);
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      color: white;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    
+    .promo-banner .close-btn:hover {
+      background: var(--primary);
+    }
+    
+    .installment-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(135deg, #25d366 0%, #1fa2ff 100%);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    .installment-section {
+      background: linear-gradient(135deg, #f0f4f8 0%, #e3ebf5 100%);
+      padding: 4rem 1rem;
+      margin: 3rem 0;
+    }
+    
+    .installment-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .installment-text h2 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 2.2rem;
+    }
+    
+    .installment-text p {
+      font-size: 1.15rem;
+      margin-bottom: 1.5rem;
+      color: #444;
+      line-height: 1.7;
+    }
+    
+    .installment-text ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+    
+    .installment-text ul li {
+      padding-left: 2rem;
+      position: relative;
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+    }
+    
+    .installment-text ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    
+    .installment-image img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(21,78,113,0.15);
+    }
+    
+    /* Partnerët e pagesës me keste */
+    .partners-section {
+      max-width: 1200px;
+      margin: 3rem auto;
+      text-align: center;
+    }
+    
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .partner-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 6px 24px rgba(21,78,113,0.1);
+      transition: all 0.3s ease;
+      border: 2px solid #eaf6fb;
+    }
+    
+    .partner-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 32px rgba(21,78,113,0.2);
+      border-color: var(--secondary);
+    }
+    
+    .partner-card img {
+      height: 80px;
+      margin-bottom: 1.5rem;
+      object-fit: contain;
+    }
+    
+    .partner-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .partner-card ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+    
+    .partner-card ul li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+    }
+    
+    .partner-card ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--secondary);
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    
+    /* Stile për pajisjet celulare */
+    @media (max-width: 1024px) {
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .store-title {
+        font-size: 2.2rem;
+      }
+      
+      nav {
+        gap: 0.8rem;
+      }
+      
+      .featured-products {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.8rem;
+      }
+      
+      .hero {
+        height: 60vh;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title {
+        font-size: 2.2rem;
+      }
+      
+      .about-section, .contact-section {
+        padding: 2rem;
+      }
+      
+      .installment-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .installment-text {
+        text-align: center;
+      }
+      
+      .installment-text ul li {
+        padding-left: 0;
+        text-align: left;
+        padding-left: 2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero {
+        height: 50vh;
+      }
+      
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      
+      .store-title {
+        font-size: 1.8rem;
+      }
+      
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .featured-card {
+        padding: 1.5rem;
+      }
+      
+      .featured-card img {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigacioni i qëndrueshëm -->
+  <header>
+    <div class="header-content">
+      <img src="images/logo.jpg" alt="Logoja e SKY Mobile Durres" class="logo">
+      <div>
+        <h1 class="store-title">SKY Mobile Durres</h1>
+        <nav>
+          <a href="index.html" class="active">Kryefaqja</a>
+          <a href="index.html#featured-categories">Kategoritë</a>
+          <a href="products.html">Produktet</a>
+          <a href="about.html">Rreth Nesh</a>
+          <a href="contact.html">Kontakt</a>
+          <a href="products.html#b-container">Shporta <span class="basket-icon">🛒<span id="basket-count" class="basket-count">0</span></span></a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Shirita reklamë për pagesën me keste -->
+  <div class="promo-banner">
+    <div class="banner-content">
+      <p>✨ Pagesa me keste me NOA dhe IUTE Credit! Deri në 18 muaj pa kamatë! ✨</p>
+      <button class="close-btn">×</button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <!-- Seksioni Hero -->
+    <div class="hero">
+      <video autoplay muted loop>
+        <source src="images/3946219-uhd_4096_2160_25fps.mp4" type="video/mp4" />
+        <img src="images/hero-fallback.jpg" alt="Dyqan Telefonash" />
+      </video>
+      <div class="hero-content">
+        <h1>Mirësevini në Dyqanin SKY Mobile</h1>
+        <p>Zbuloni telefonat më të fundit, pajisjet dhe skuterat.<br>Pagesë me keste me NOA & IUTE Credit!</p>
+        <a href="products.html" class="btn">Bli Tani</a>
+      </div>
+    </div>
+
+    <!-- Kategoritë e Zgjedhura -->
+    <section id="featured-categories">
+      <h2 class="section-title">Kategoritë e Zgjedhura</h2>
+      <div class="featured-products">
+        <!-- Telefonat -->
+        <div class="featured-card">
+          <span class="installment-badge">NOA & IUTE</span>
+          <img src="images/15promax.jpg" alt="Telefonat" />
+          <h3>Telefonat</h3>
+          <p>Telefonat më të fundit nga Apple, Samsung, Google dhe të tjerë.</p>
+          <a href="products.html#telephones" class="buy-btn">Shiko Telefonat</a>
+        </div>
+        <!-- Tabletët -->
+        <div class="featured-card">
+          <span class="installment-badge">NOA & IUTE</span>
+          <img src="images/tablets.jpg" alt="Tabletët" />
+          <h3>Tabletët</h3>
+          <p>iPad, Samsung Galaxy Tab dhe tabletat e tjera të njohura.</p>
+          <a href="products.html#tablets" class="buy-btn">Shiko Tabletët</a>
+        </div>
+        <!-- Skuterat -->
+        <div class="featured-card">
+          <span class="installment-badge">NOA & IUTE</span>
+          <img src="images/scooter.jpg" alt="Skuterat" />
+          <h3>Skuterat</h3>
+          <p>Skuterë elektrikë për lëvizje urbane.</p>
+          <a href="products.html#scooters" class="buy-btn">Shiko Skuterat</a>
+        </div>
+        <!-- Laptopët -->
+        <div class="featured-card">
+          <span class="installment-badge">NOA & IUTE</span>
+          <img src="images/laptops.jpg" alt="Laptopët" />
+          <h3>Laptopët</h3>
+          <p>MacBook, Dell, Lenovo, HP dhe të tjerë.</p>
+          <a href="products.html#laptops" class="buy-btn">Shiko Laptopët</a>
+        </div>
+        <!-- Kutitë Bluetooth -->
+        <div class="featured-card">
+          <span class="installment-badge">NOA & IUTE</span>
+          <img src="images/boxMusic.jpg" alt="Kutitë Bluetooth" />
+          <h3>Kutitë Bluetooth</h3>
+          <p>Kutitë Bluetooth dhe sisteme të zërit portative.</p>
+          <a href="products.html#musicboxes" class="buy-btn">Shiko Kutitë Bluetooth</a>
+        </div>
+        <!-- Orët Inteligjente -->
+        <div class="featured-card">
+          <span class="installment-badge">NOA & IUTE</span>
+          <img src="images/smartwatch.jpg" alt="Orët Inteligjente" />
+          <h3>Orët Inteligjente</h3>
+          <p>Apple Watch, Samsung Galaxy Watch, Garmin dhe të tjerë.</p>
+          <a href="products.html#smartwatches" class="buy-btn">Shiko Orët Inteligjente</a>
+        </div>
+        <!-- Aksesorët -->
+        <div class="featured-card">
+          <span class="installment-badge">NOA & IUTE</span>
+          <img src="images/airpods.jpg" alt="Aksesorët" />
+          <h3>Aksesorët</h3>
+          <p>Kufje, kuti, karikues dhe më shumë.</p>
+          <a href="products.html#accessories" class="buy-btn">Shiko Aksesorët</a>
+        </div>
+      </div>
+      <div class="view-all">
+        <a href="products.html" class="btn">Shiko të Gjitha Produktet</a>
+      </div>
+    </section>
+
+    <!-- Seksioni i Partnerëve -->
+    <section class="partners-section">
+      <h2 class="section-title">Partnerët Tanë për Pagesë me Keste</h2>
+      <div class="partners-grid">
+        <div class="partner-card">
+          <img src="/images/noabank.png" alt="NOA">
+          <h3>Pagesa me Keste me NOA</h3>
+          <ul>
+            <li>Deri në 12 keste pa kamatë</li>
+            <li>Proces i shpejtë - vetëm 5 minuta</li>
+            <li>Mundësi parapagimi nga 0% deri në 50%</li>
+            <li>Aprovim në vend</li>
+            <li>Kërkohet vetëm ID kartela</li>
+            <li>Mosha minimale: 18 vjeç</li>
+          </ul>
+        </div>
+        
+        <div class="partner-card">
+          <img src="images/Iute.png" alt="IUTE Credit">
+          <h3>Pagesa me Keste me IUTE Credit</h3>
+          <ul>
+            <li>Deri në 18 keste pa kamatë</li>
+            <li>Kufiri kredie deri në 300,000 Lekë</li>
+            <li>Aplikim online në 10 minuta</li>
+            <li>Parapagim minimal 10%</li>
+            <li>Kërkohet ID kartela dhe fletëpagesa</li>
+            <li>Mosha minimale: 20 vjeç</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seksioni për pagesën me keste -->
+    <section class="installment-section">
+      <div class="installment-content">
+        <div class="installment-text">
+          <h2>Pagesa me Keste pa Kamate me Partnerët Tanë</h2>
+          <p>Ne SKY Mobile Durres, ju ofrojmë mundësinë të blini produktet tuaja të preferuara dhe të paguani me keste pa kamatë nëpërmjet partnerëve tanë të besuar: NOA dhe IUTE Credit.</p>
+          <p>Me bashkëpunimin tonë me këto institucione financiare, ju mund të përfitoni nga ofertat më të mira të pagesës me keste në treg.</p>
+          <a href="contact.html" class="buy-btn">Apliko Tani për Keste</a>
+        </div>
+        <div class="installment-image">
+          <img src="https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pagesa me keste">
+        </div>
+      </div>
+    </section>
+
+    <!-- Seksioni Rreth Nesh -->
+    <section class="about-section">
+      <h2>Rreth Nesh</h2>
+      <p>Ne ofrojmë telefonat më të fundit dhe cilësorë, pajisje dhe skuterë me garanci dhe dorëzim të shpejtë. Misioni ynë është të ofrojmë shërbim të shkëlqyer ndaj klientit dhe pajisjet më të reja me çmime konkurruese.</p>
+      <p>Që nga viti 2005, SKY Mobile Durres ka qenë zgjedhja e besuar për mijëra klientë në të gjithë Shqipërinë. Ne mbështetemi në çdo produkt që shesim me garanci të gjera dhe mbështetje të jashtëzakonshme pas-shitëse.</p>
+      <p>Me partnerët tanë NOA dhe IUTE Credit, ju ofrojmë mundësinë e pagesës me keste me kushtet më të mira në treg.</p>
+    </section>
+
+    <!-- Seksioni Kontakt -->
+    <section class="contact-section">
+      <h2>Na Kontaktoni</h2>
+      <p>Telefon: <a href="tel:+355698199816">+355 69 819 9816</a></p>
+      <p>WhatsApp: <a href="https://wa.me/355698199816" target="_blank">Bisedo në WhatsApp</a></p>
+      <p>Na vizitoni në <a href="https://www.instagram.com/sky_mobile.dr/?hl=en" target="_blank">Instagram</a></p>
+      <p>Lokacioni: <a href="https://maps.app.goo.gl/EqkgYEpFLbUnRUXM6" target="_blank">Durrës, Shqipëri</a></p>
+    </section>
+  </div>
+
+  <!-- Futja e qëndrueshme -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html">Kryefaqja</a>
+        <a href="products.html">Produktet</a>
+        <a href="about.html">Rreth Nesh</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="#">Politika e Privatësisë</a>
+        <a href="#">Kushtet e Shërbimit</a>
+        <a href="#installment-section">Pagesa me Keste</a>
+      </div>
+      <p class="copyright">&copy; 2025 SKY Mobile Durres. Të gjitha të drejtat e rezervuara.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Përditësimi i numrit të artikujve në shportë
+    function updateBasketCount() {
+      const basket = JSON.parse(localStorage.getItem('basket')) || [];
+      const count = basket.reduce((total, item) => total + item.qty, 0);
+      document.getElementById('basket-count').textContent = count;
+    }
+    
+    // Theksimi i faqes aktive në navigacion
+    function setActiveNavLink() {
+      const currentPage = window.location.pathname.split('/').pop();
+      const navLinks = document.querySelectorAll('nav a');
+      
+      navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href').split('/').pop();
+        if (currentPage === linkPage || 
+            (currentPage === 'index.html' && linkPage === '#featured-categories')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+    
+    // Funksioni për mbylljen e shiritit reklamues
+    function closePromoBanner() {
+      document.querySelector('.promo-banner').style.display = 'none';
+    }
+    
+    // Inicializimi kur faqja ngarkohet
+    document.addEventListener('DOMContentLoaded', () => {
+      updateBasketCount();
+      setActiveNavLink();
+      
+      // Shtimi i scrollimit të butë për lidhjet ankorë
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Event listener për butonin e mbylljes së shiritit reklamues
+      document.querySelector('.promo-banner .close-btn').addEventListener('click', closePromoBanner);
+    });
+  </script>
+</body>
+</html>
