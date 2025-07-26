@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kontakt - SKY Mobile Durres</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    :root {
+      --primary: #154e71;
+      --secondary: #1fa2ff;
+      --accent: #25d366;
+      --light: #f0f4f8;
+      --dark: #333;
+    }
+    
+    body {
+      background: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .logo {
+      height: 80px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    
+    .store-title {
+      font-size: 2rem;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+    
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .section-title {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+    
+    footer {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      border-radius: 24px 24px 0 0;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+    
+    .copyright {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    
+    .basket-icon {
+      position: relative;
+      display: inline-block;
+      margin-left: 1rem;
+    }
+    
+    .basket-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    
+    .contact-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .contact-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: var(--dark);
+    }
+    
+    .contact-option:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    
+    .whatsapp .contact-icon {
+      background: #25d366;
+      color: white;
+    }
+    
+    .call .contact-icon {
+      background: #1fa2ff;
+      color: white;
+    }
+    
+    .instagram .contact-icon {
+      background: #e1306c;
+      color: white;
+    }
+    
+    .contact-text {
+      flex-grow: 1;
+    }
+    
+    .contact-text h3 {
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+    
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .map-container {
+      margin-top: 2rem;
+      height: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .selected-product {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(21,78,113,0.08);
+      margin-bottom: 2rem;
+      text-align: center;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .selected-product h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .product-details {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .product-details p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+    
+    .product-price {
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: var(--primary);
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .store-title {
+        font-size: 1.8rem;
+      }
+      
+      nav {
+        gap: 0.8rem;
+      }
+      
+      .contact-container {
+        flex-direction: column;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 1.7rem;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="images/logo.jpg" alt="SKY Mobile Durres Logo" class="logo">
+      <div>
+        <h1 class="store-title">SKY Mobile Durres</h1>
+        <nav>
+          <a href="index.html">Kryefaqja</a>
+          <a href="products.html">Produktet</a>
+          <a href="index.html#featured-categories">Kategoritë</a>
+          <a href="about.html">Rreth Nesh</a>
+          <a href="contact.html" class="active">Kontakt</a>
+          <a href="products.html#b-container">Shporta <span class="basket-icon">🛒<span id="basket-count" class="basket-count">0</span></span></a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Na Kontaktoni</h2>
+    
+    <div id="selected-product" class="selected-product" style="display:none;">
+      <h3>Produkti që keni përzgjedhur</h3>
+      <div class="product-details">
+        <p id="product-name"></p>
+        <p class="product-price" id="product-price"></p>
+      </div>
+    </div>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-options">
+          <a href="#" class="contact-option whatsapp" id="whatsappLink">
+            <div class="contact-icon">✆</div>
+            <div class="contact-text">
+              <h3>WhatsApp</h3>
+              <p>+355 69 819 9816</p>
+            </div>
+          </a>
+          
+          <a href="tel:+355698199816" class="contact-option call">
+            <div class="contact-icon">📞</div>
+            <div class="contact-text">
+              <h3>Telefononi</h3>
+              <p>+355 69 819 9816</p>
+            </div>
+          </a>
+          
+          <a href="https://www.instagram.com/sky_mobile.dr/?hl=en" target="_blank" class="contact-option instagram">
+            <div class="contact-icon">📷</div>
+            <div class="contact-text">
+              <h3>Instagram</h3>
+              <p>@sky_mobile.dr</p>
+            </div>
+          </a>
+        </div>
+        
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23950.58106129371!2d19.43615775237522!3d41.31986102476265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134fda5f5e6e9a85%3A0xed5d0b9aae4d6d70!2sDurr%C3%ABs%2C%20Albania!5e0!3m2!1sen!2sus!4v1717393897908!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html">Kryefaqja</a>
+        <a href="products.html">Produktet</a>
+        <a href="about.html">Rreth Nesh</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="#">Politika e Privatësisë</a>
+        <a href="#">Kushtet e Shërbimit</a>
+      </div>
+      <p class="copyright">&copy; 2025 SKY Mobile Durres. Të gjitha të drejtat e rezervuara.</p>
+    </div>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Update basket count
+      function updateBasketCount() {
+        const basket = JSON.parse(localStorage.getItem('basket')) || [];
+        const count = basket.reduce((total, item) => total + item.qty, 0);
+        document.getElementById('basket-count').textContent = count;
+      }
+      
+      updateBasketCount();
+      
+      // Handle product query parameters
+      const params = new URLSearchParams(window.location.search);
+      const product = params.get("product");
+      const price = params.get("price");
+      
+      if (product && price) {
+        const formattedPrice = parseInt(price).toLocaleString('sq-AL') + " Lek";
+        document.getElementById("product-name").textContent = product;
+        document.getElementById("product-price").textContent = formattedPrice;
+        document.getElementById("selected-product").style.display = "block";
+        
+        // Update WhatsApp link
+        const message = `Përshëndetje, jam i interesuar për produktin: ${product} (Çmimi: ${formattedPrice}). Ju lutem më ktheni një përgjigje.`;
+        const whatsappLink = document.getElementById("whatsappLink");
+        const phone = "355698199816";
+        const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        whatsappLink.href = whatsappURL;
+      }
+    });
+  </script>
+</body>
+</html>

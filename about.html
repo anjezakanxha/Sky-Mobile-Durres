@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rreth Nesh - SKY Mobile Durres</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    :root {
+      --primary: #154e71;
+      --secondary: #1fa2ff;
+      --accent: #25d366;
+      --light: #f0f4f8;
+      --dark: #333;
+    }
+    
+    body {
+      background: linear-gradient(120deg, #eaf6fb 0%, #f7fafd 100%);
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Stilizim i qëndrueshëm i Navigacionit */
+    header {
+       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+      box-shadow: 0 2px 16px rgba(21,78,113,0.10);
+      border-radius: 0 0 24px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .logo {
+      height: 80px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    
+    .store-title {
+      font-size: 2.5rem;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+    
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    nav a.active {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .basket-icon {
+      position: relative;
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+    
+    .basket-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    
+    /* Stilizim i Përmbajtjes Kryesore */
+    .main-content {
+      flex: 1;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(21,78,113,0.08);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .about-text h2 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 2.2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .about-text h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+    
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+    
+    .highlight {
+      background: linear-gradient(120deg, rgba(31,162,255,0.1) 0%, rgba(255,255,255,0.3) 100%);
+      border-left: 4px solid var(--secondary);
+      padding: 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+    
+    .map-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.8rem;
+      background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(31,162,255,0.2);
+    }
+    
+    .map-link:hover {
+      background: linear-gradient(90deg, var(--secondary) 60%, var(--primary) 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(31,162,255,0.3);
+    }
+    
+    .values-section {
+      margin: 3rem 0;
+    }
+    
+    .values-section h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
+      position: relative;
+    }
+    
+    .values-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .value-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(21,78,113,0.08);
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s;
+      border: 2px solid #eaf6fb;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 24px rgba(21,78,113,0.15);
+      border-color: var(--secondary);
+    }
+    
+    .value-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .value-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+    
+    .value-card p {
+      color: #555;
+      line-height: 1.7;
+    }
+    
+    /* Stilizim i qëndrueshëm i Futëres */
+    footer {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      border-radius: 24px 24px 0 0;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+    
+    .copyright {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    
+    /* Stile për pajisjet celulare */
+    @media (max-width: 900px) {
+      .about-container {
+        flex-direction: column;
+      }
+      
+      .about-image, .about-text {
+        min-width: 100%;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .store-title {
+        font-size: 2rem;
+      }
+      
+      nav {
+        gap: 0.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .store-title {
+        font-size: 1.8rem;
+      }
+      
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .about-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigacioni i qëndrueshëm -->
+  <header>
+    <div class="header-content">
+      <img src="images/logo.jpg" alt="SKY Mobile Durres Logo" class="logo">
+      <div>
+        <h1 class="store-title">SKY Mobile Durres</h1>
+        <nav>
+          <a href="index.html">Kryefaqja</a>
+          <a href="products.html">Produktet</a>
+          <a href="index.html#featured-categories">Kategoritë</a>
+          <a href="about.html" class="active">Rreth Nesh</a>
+          <a href="contact.html">Kontakt</a>
+          <a href="products.html#b-container">Shporta <span class="basket-icon">🛒<span id="basket-count" class="basket-count">0</span></span></a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="images/dyqaniFoto.jpg" alt="Brenda Dyqanit SKY Mobile">
+      </div>
+      <div class="about-text">
+        <h2>Rreth SKY Mobile Durres</h2>
+        <p>Që nga themelimi ynë në vitin <strong>2005</strong>, SKY Mobile Durres ka qenë destinacioni kryesor për teknologjinë mobile autentike në Shqipëri. Ne krenohemi duke ofruar vetëm <strong>produkte origjinale</strong> nga markat kryesore botërore si Apple, Samsung, Xiaomi dhe shumë të tjera.</p>
+        
+        <div class="highlight">
+          <p>Angazhimi ynë për cilësinë dhe kënaqësinë e klientit na ka bërë zgjedhjen e besuar për mijëra klientë në të gjithë Durrësin dhe më gjerë. Ne mbështetemi në çdo produkt që shesim me garanci të gjera dhe mbështetje të jashtëzakonshme pas-shitëse.</p>
+        </div>
+        
+        <p>Vizitoni dyqanin tonë modern të vendosur në zemrën e Durrësit për të përjetuar risitë më të fundit në teknologjinë mobile, të udhëhequr nga stafi ynë i njohur dhe miqësor. Ne jemi të përkushtuar për t'ju ndihmuar të gjeni pajisjen perfekte që përshtatet me stilin tuaj të jetesës dhe nevojat tuaja.</p>
+        
+        <a href="https://maps.app.goo.gl/EqkgYEpFLbUnRUXM6" target="_blank" class="map-link">Na Gjeni në Google Maps</a>
+      </div>
+    </div>
+
+    <section class="values-section">
+      <h2>Vlerat Tona Themelore</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">✓</div>
+          <h3>Autenticitet</h3>
+          <p>Ne garantojmë që të gjitha produktet janë 100% origjinale dhe të blera direkt nga prodhuesit. Asnjë falsifikim, kurrë.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">❤️</div>
+          <h3>Kujdesi për Klientin</h3>
+          <p>Ekipi ynë i përkushtuar ofron ndihmë të personalizuar para, gjatë dhe pas blerjes suaj.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">⚡</div>
+          <h3>Shërbim i Shpejtë</h3>
+          <p>Konfigurim i shpejtë i pajisjeve, riparime brenda ditës dhe mbështetje garancie të menjëhershme kur ju nevojitet më shumë.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">🏆</div>
+          <h3>Njohuri Eksperte</h3>
+          <p>Ekipi ynë qëndron i përditësuar me trendet e teknologjisë për të ofruar rekomandime të informuara të përshtatura me nevojat tuaja.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Futja e qëndrueshme -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html">Kryefaqja</a>
+        <a href="products.html">Produktet</a>
+        <a href="about.html">Rreth Nesh</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="#">Politika e Privatësisë</a>
+        <a href="#">Kushtet e Shërbimit</a>
+      </div>
+      <p class="copyright">&copy; 2025 SKY Mobile Durres. Të gjitha të drejtat e rezervuara.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Përditësimi i numrit të artikujve në shportë
+    function updateBasketCount() {
+      const basket = JSON.parse(localStorage.getItem('basket')) || [];
+      const count = basket.reduce((total, item) => total + item.qty, 0);
+      document.getElementById('basket-count').textContent = count;
+    }
+    
+    // Inicializimi kur faqja ngarkohet
+    document.addEventListener('DOMContentLoaded', updateBasketCount);
+  </script>
+</body>
+</html>

@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SKY Mobile Durres - Produktet</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    :root {
+      --primary: #154e71;
+      --secondary: #1fa2ff;
+      --accent: #1d733d;
+      --light: #f0f4f8;
+      --dark: #333;
+    }
+    
+    body {
+      background: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .logo {
+      height: 80px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    
+    .store-title {
+      font-size: 2rem;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+    
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .section-title {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+    
+    /* Products Grid */
+    .products-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .product-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(21,78,113,0.08);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #eaf6fb;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(21,78,113,0.15);
+    }
+    
+    .product-card img {
+      width: 90%;
+      height: auto;
+      max-height: 180px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 12px rgba(31,162,255,0.08);
+      border: 1px solid #eaf6fb;
+      background: white;
+      padding: 5px;
+    }
+    
+    .product-card h3 {
+      margin: 0.5rem 0 0.25rem 0;
+      font-size: 1.2rem;
+      color: #154e71;
+      text-align: center;
+    }
+    
+    .product-card p {
+      margin: 0.25rem 0;
+      color: #555;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+    
+    .product-price {
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #154e71;
+      margin: 0.5rem 0;
+    }
+    
+    .buy-btn {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(31,162,255,0.08);
+      text-decoration: none;
+      display: inline-block;
+      letter-spacing: 1px;
+      font-size: 1rem;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .buy-btn:hover {
+      background: linear-gradient(90deg, var(--secondary) 60%, var(--primary) 100%);
+      box-shadow: 0 4px 12px rgba(31,162,255,0.2);
+    }
+    
+    .select-multiple {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .action-btn {
+      padding: 0.8rem 1.8rem;
+      background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(31,162,255,0.08);
+      font-size: 1rem;
+    }
+    
+    .action-btn:hover {
+      background: linear-gradient(90deg, var(--secondary) 60%, var(--primary) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(31,162,255,0.2);
+    }
+    
+    .clear-btn {
+      background: linear-gradient(90deg, #e74c3c 60%, #c0392b 100%);
+    }
+    
+    .clear-btn:hover {
+      background: linear-gradient(90deg, #c0392b 60%, #e74c3c 100%);
+    }
+    
+    #searchBar {
+      display: block;
+      margin: 1rem auto;
+      padding: 0.8rem 1.5rem;
+      width: 80%;
+      max-width: 500px;
+      border: 2px solid var(--primary);
+      border-radius: 6px;
+      font-size: 1rem;
+      box-shadow: 0 2px 8px rgba(21,78,113,0.1);
+    }
+    
+    /* Basket Styles */
+    .basket-container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(21,78,113,0.08);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .basket-table {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      border-collapse: collapse;
+    }
+    
+    .basket-table th, .basket-table td {
+      border-bottom: 1px solid #eaf6fb;
+      padding: 1rem;
+      text-align: left;
+    }
+    
+    .basket-table th {
+      background: #eaf6fb;
+      color: #154e71;
+      font-weight: 600;
+    }
+    
+    .total-row td {
+      font-weight: bold;
+      color: #154e71;
+      border-top: 2px solid #1fa2ff;
+      font-size: 1.2rem;
+    }
+    
+    .checkout-btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(90deg, var(--accent) 60%, #128C7E 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(37,211,102,0.2);
+      transition: all 0.3s ease;
+      margin-top: 1.5rem;
+      text-align: center;
+      text-decoration: none;
+    }
+    
+    .checkout-btn:hover {
+      background: linear-gradient(90deg, #128C7E 60%, var(--accent) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+    }
+    
+    .qty-control {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .qty-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      background: var(--primary);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .remove-btn {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    
+    .remove-btn:hover {
+      background: #c0392b;
+    }
+    
+    footer {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      border-radius: 24px 24px 0 0;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+    
+    .copyright {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    
+    .empty-basket {
+      text-align: center;
+      padding: 2rem;
+      color: #777;
+      font-size: 1.2rem;
+    }
+    
+    .basket-icon {
+      position: relative;
+      display: inline-block;
+      margin-left: 1rem;
+    }
+    
+    .basket-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    
+    .contact-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .contact-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: var(--dark);
+    }
+    
+    .contact-option:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    
+    .whatsapp .contact-icon {
+      background: #25d366;
+      color: white;
+    }
+    
+    .call .contact-icon {
+      background: #1fa2ff;
+      color: white;
+    }
+    
+    .instagram .contact-icon {
+      background: #e1306c;
+      color: white;
+    }
+    
+    .contact-text {
+      flex-grow: 1;
+    }
+    
+    .contact-text h3 {
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .store-title {
+        font-size: 1.8rem;
+      }
+      
+      nav {
+        gap: 0.8rem;
+      }
+      
+      .products-section {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+      
+      .select-multiple {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .action-btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .product-card {
+        padding: 1rem;
+      }
+      
+      .basket-table th, 
+      .basket-table td {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+      }
+      
+      .section-title {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="images/logo.jpg" alt="SKY Mobile Durres Logo" class="logo">
+      <div>
+        <h1 class="store-title">SKY Mobile Durres</h1>
+        <nav>
+          <a href="index.html">Kryefaqja</a>
+          <a href="products.html" class="active">Produktet</a>
+          <a href="index.html#featured-categories">Kategoritë</a>
+          <a href="about.html">Rreth Nesh</a>
+          <a href="contact.html">Kontakt</a>
+          <a href="products.html#b-container">Shporta <span class="basket-icon">🛒<span id="basket-count" class="basket-count">0</span></span></a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Produktet Tona</h2>
+    
+    <div class="select-multiple">
+      <button class="action-btn" onclick="addSelectedToBasket()">Shto të Përzgjedhurit në Shportë</button>
+      <button class="action-btn clear-btn" onclick="clearSelections()">Pastro Përzgjedhjet</button>
+    </div>
+    
+    <input type="text" id="searchBar" placeholder="Kërko produkte..." oninput="filterProducts()">
+    
+    <div class="products-section" id="products-list">
+      <!-- Produktet do të shfaqen këtu -->
+    </div>
+    
+    <div class="basket-container" id="b-container">
+      <h2 class="section-title">Shporta Juaj</h2>
+      <table class="basket-table" id="basket-table">
+        <thead>
+          <tr>
+            <th>Produkti</th>
+            <th>Çmimi</th>
+            <th>Sasia</th>
+            <th>Nëntotali</th>
+            <th>Veprimi</th>
+          </tr>
+        </thead>
+        <tbody id="basket-body">
+          <!-- Artikujt e shportës do të shfaqen këtu -->
+        </tbody>
+        <tfoot>
+          <tr class="total-row">
+            <td colspan="3">Totali</td>
+            <td id="basket-total">0 Lek</td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+      
+      <div id="empty-basket" class="empty-basket">
+        Shporta juaj është e zbrazët. Shtoni disa produkte!
+      </div>
+      
+      <a href="#" class="checkout-btn" id="checkout-btn">Vazhdo në Blerje</a>
+    </div>
+    
+    <div class="contact-options">
+      <h2 class="section-title">Na Kontaktoni</h2>
+      
+      <a href="#" class="contact-option whatsapp">
+        <div class="contact-icon">✆</div>
+        <div class="contact-text">
+          <h3>WhatsApp</h3>
+          <p>+355 69 819 9816</p>
+        </div>
+      </a>
+      
+      <a href="tel:+355698199816" class="contact-option call">
+        <div class="contact-icon">📞</div>
+        <div class="contact-text">
+          <h3>Telefononi</h3>
+          <p>+355 69 819 9816</p>
+        </div>
+      </a>
+      
+      <a href="https://www.instagram.com/sky_mobile.dr/?hl=en" target="_blank" class="contact-option instagram">
+        <div class="contact-icon">📷</div>
+        <div class="contact-text">
+          <h3>Instagram</h3>
+          <p>@sky_mobile.dr</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html">Kryefaqja</a>
+        <a href="products.html">Produktet</a>
+        <a href="about.html">Rreth Nesh</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="#">Politika e Privatësisë</a>
+        <a href="#">Kushtet e Shërbimit</a>
+      </div>
+      <p class="copyright">&copy; 2025 SKY Mobile Durres. Të gjitha të drejtat e rezervuara.</p>
+    </div>
+  </footer>
+  
+  <script>
+const products = [
+  { name: "iPhone 16 Pro Max",
+   price: 106000, 
+   img: "/images/CategoryImages/iphone/16promax.jpg", 
+   category: "telephones",
+   description: `• Ekran 6.9\" Super Retina XDR OLED, 120Hz<br>• Çip A19 Pro – performancë maksimale<br>• Kamera trefishtë 48MP + 12MP + 12MP, video 8K<br>• Kamera selfie 12MP me Autofokus<br>• Face ID, Dynamic Island, USB-C<br>• Bateri 4800mAh me karikim të shpejtë<br>• Trup titani – rezistencë dhe elegancë<br>• iOS 18 – më inteligjent se kurrë më parë` },
+  
+  {name: "iPhone 16 Pro",
+  price: 99000,
+  img: "/images/CategoryImages/iphone/16pro.jpg",
+  category: "telephones",
+  description: `• Ekran 6.3" Super Retina XDR OLED, 120Hz<br>• Çip A19 Pro – fuqi dhe efikasitet maksimal<br>• Kamera trefishtë 48MP + 12MP + 12MP, video 8K<br>• Kamera selfie 12MP me Autofokus<br>• Dynamic Island, Face ID, USB-C<br>• Trup titani, dizajn premium<br>• Bateri 4450mAh me karikim të shpejtë<br>• iOS 18 – funksione të avancuara dhe AI i integruar`
+  },
+  {
+  name: "iPhone 16",
+  price: 76000,
+  img: "/images/CategoryImages/iphone/16.jpg",
+  category: "telephones",
+  description: `• Ekran 6.1" Super Retina XDR OLED<br>• Çip A18 – performancë e shpejtë dhe efikase<br>• Kamera dyfishtë 48MP + 12MP, video 4K<br>• Kamera selfie 12MP me Night Mode<br>• Face ID, Dynamic Island, USB-C<br>• Trup alumini, rezistencë ndaj ujit IP68<br>• Bateri 3877mAh me karikim të shpejtë<br>• iOS 18 – inteligjencë artificiale e përmirësuar`
+},{
+  name: "iPhone 14 Pro Max",
+  price: 59000,
+  img: "/images/CategoryImages/iphone/14promax.jpg",
+  category: "telephones",
+  description: `• Ekran 6.7" Super Retina XDR OLED, 120Hz (ProMotion)<br>• Çip A16 Bionic – fuqi dhe efikasitet maksimal<br>• Kamera trefishtë 48MP + 12MP + 12MP, video 4K/ProRes<br>• Kamera selfie 12MP me Autofokus<br>• Dynamic Island, Face ID, Always-On Display<br>• Trup çeliku inox, mbrojtje Ceramic Shield<br>• Bateri 4323mAh me karikim të shpejtë<br>• iOS 16, përditësueshëm në iOS 18`
+},{
+  name: "iPhone 14 Pro",
+  price: 49000,
+  img: "/images/CategoryImages/iphone/14pro.jpg",
+  category: "telephones",
+  description: `• Ekran 6.1" Super Retina XDR OLED, 120Hz (ProMotion)<br>• Çip A16 Bionic – performancë e lartë dhe efikasitet<br>• Kamera trefishtë 48MP + 12MP + 12MP, video 4K/ProRes<br>• Kamera selfie 12MP me Autofokus<br>• Dynamic Island, Face ID, Always-On Display<br>• Trup çeliku inox, mbrojtje Ceramic Shield<br>• Bateri 3200mAh me karikim të shpejtë<br>• iOS 16, përditësueshëm në iOS 18`
+},
+{
+  name: "iPhone 14",
+  price: 42000,
+  img: "/images/CategoryImages/iphone/14.jpg",
+  category: "telephones",
+  description: `• Ekran 6.1" Super Retina XDR OLED<br>• Çip A15 Bionic – 5-core GPU, performancë e përmirësuar<br>• Kamera dyfishtë 12MP + 12MP me Night Mode<br>• Kamera selfie 12MP me Autofokus<br>• Face ID, rezistencë ndaj ujit IP68<br>• Trup alumini dhe mbrojtje Ceramic Shield<br>• Bateri 3279mAh me karikim të shpejtë<br>• iOS 16, përditësueshëm në iOS 18`
+},
+{
+  name: "iPhone 13 Pro Max",
+  price: 47000,
+  img: "/images/CategoryImages/iphone/13promax.jpg",
+  category: "telephones",
+  description: `• Ekran 6.7" Super Retina XDR OLED, 120Hz (ProMotion)<br>• Çip A15 Bionic – 5-core GPU për grafikë të avancuar<br>• Kamera trefishtë 12MP + 12MP + 12MP, video 4K/ProRes<br>• Kamera selfie 12MP me Night Mode<br>• Face ID, rezistencë ndaj ujit IP68<br>• Trup çeliku inox, mbrojtje Ceramic Shield<br>• Bateri 4352mAh me karikim të shpejtë<br>• iOS 15, përditësueshëm në iOS 18`
+},
+{
+  name: "iPhone 13 Pro",
+  price: 40000,
+  img: "/images/CategoryImages/iphone/13pro.jpg",
+  category: "telephones",
+  description: `• Ekran 6.1" Super Retina XDR OLED, 120Hz (ProMotion)<br>• Çip A15 Bionic – 5-core GPU, performancë e fuqishme<br>• Kamera trefishtë 12MP + 12MP + 12MP, video 4K/ProRes<br>• Kamera selfie 12MP me Night Mode<br>• Face ID, rezistencë ndaj ujit IP68<br>• Trup çeliku inox, mbrojtje Ceramic Shield<br>• Bateri 3095mAh me karikim të shpejtë<br>• iOS 15, përditësueshëm në iOS 18`
+},{
+  name: "iPhone 13",
+  price: 31000,
+  img: "/images/CategoryImages/iphone/13.jpg",
+  category: "telephones",
+  description: `• Ekran 6.1" Super Retina XDR OLED<br>• Çip A15 Bionic – 4-core GPU, performancë e qëndrueshme<br>• Kamera dyfishtë 12MP + 12MP me Night Mode dhe Cinematic Mode<br>• Kamera selfie 12MP me Smart HDR 4<br>• Face ID, rezistencë ndaj ujit IP68<br>• Trup alumini dhe mbrojtje Ceramic Shield<br>• Bateri 3240mAh me karikim të shpejtë<br>• iOS 15, përditësueshëm në iOS 18`
+},
+{
+  name: "iPhone 12 Pro Max",
+  price: 42000,
+  img: "/images/CategoryImages/iphone/12promax.jpg",
+  category: "telephones",
+  description: `• Ekran 6.7" Super Retina XDR OLED<br>• Çip A14 Bionic – performancë e shpejtë dhe efikase<br>• Kamera trefishtë 12MP + 12MP + 12MP me LiDAR Scanner, video 4K Dolby Vision<br>• Kamera selfie 12MP me Night Mode<br>• Face ID, rezistencë ndaj ujit IP68<br>• Trup çeliku inox, mbrojtje Ceramic Shield<br>• Bateri 3687mAh me karikim të shpejtë<br>• iOS 14, përditësueshëm në iOS 18`
+},
+{
+  name: "iPhone 12 Pro",
+  price: 31000,
+  img: "/images/CategoryImages/iphone/12pro.jpg",
+  category: "telephones",
+  description: `• Ekran 6.1" Super Retina XDR OLED<br>• Çip A14 Bionic – efikasitet dhe fuqi e lartë<br>• Kamera trefishtë 12MP + 12MP + 12MP me LiDAR Scanner, video 4K Dolby Vision<br>• Kamera selfie 12MP me Night Mode<br>• Face ID, rezistencë ndaj ujit IP68<br>• Trup çeliku inox, mbrojtje Ceramic Shield<br>• Bateri 2815mAh me karikim të shpejtë<br>• iOS 14, përditësueshëm në iOS 18`
+},
+{
+  name: "iPhone 12",
+  price: 23000,
+  img: "/images/CategoryImages/iphone/12.jpg",
+  category: "telephones",
+  description: `• Ekran 6.1" Super Retina XDR OLED<br>• Çip A14 Bionic – performancë e lartë dhe efikasitet energjie<br>• Kamera dyfishtë 12MP + 12MP me Night Mode dhe Deep Fusion<br>• Kamera selfie 12MP me Night Mode<br>• Face ID, rezistencë ndaj ujit IP68<br>• Trup alumini dhe mbrojtje Ceramic Shield<br>• Bateri 2815mAh me karikim të shpejtë<br>• iOS 14, përditësueshëm në iOS 18`
+},
+
+                                  //Samsung//
+{
+  name:  "Samsung Galaxy S25 Ultra",
+  price: 79999,
+  img: "/images/CategoryImages/Samsung/S25ULTRA.jpg",
+  category: "telephones",
+  description: `• Ekran 6.9" Dynamic AMOLED 2X, 120Hz<br>• Procesor Snapdragon 8 Gen 3<br>• Kamera kryesore 200MP + 50MP + 50MP + 12MP<br>• Kamera selfie 12MP<br>• Bateri 5000mAh me karikim 45W<br>• S Pen i integruar<br>• Android 15 me One UI 7<br>• Kornizë titanium, dizajn premium`
+},
+{
+  name: "Samsung Galaxy S24 Ultra",
+  price: 72000,
+  img: "/images/CategoryImages/Samsung/S24ULTRA.jpg",
+  category: "telephones",
+  description: `• Ekran 6.8" Dynamic AMOLED 2X, 120Hz<br>• Procesor Snapdragon 8 Gen 3<br>• Kamera 200MP + 50MP + 12MP + 10MP<br>• Kamera selfie 12MP<br>• Bateri 5000mAh me karikim 45W<br>• S Pen i integruar<br>• Android 15 me One UI 7<br>• Kornizë titanium, dizajn premium`
+},
+{
+  name: "Samsung Galaxy S23 Ultra",
+  price: 55000,
+  img: "/images/CategoryImages/Samsung/S23ULTRA.jpg",
+  category: "telephones",
+  description: `• Ekran 6.8" Dynamic AMOLED 2X, 120Hz<br>• Procesor Snapdragon 8 Gen 2<br>• Kamera 200MP + 12MP + 10MP + 10MP<br>• Kamera selfie 12MP<br>• Bateri 5000mAh me karikim 45W<br>• S Pen i integruar<br>• Android 13 me One UI 5<br>• Dizajn premium, rezistencë IP68`
+},
+{
+  name: "Samsung Galaxy S22 Ultra",
+  price: 42000,
+  img: "/images/CategoryImages/Samsung/S22ULTRA.jpg",
+  category: "telephones",
+  description: `• Ekran 6.8" Dynamic AMOLED 2X, 120Hz<br>• Procesor Snapdragon 8 Gen 1<br>• Kamera 108MP + 12MP + 10MP + 10MP<br>• Kamera selfie 40MP<br>• Bateri 5000mAh me karikim 45W<br>• S Pen i integruar<br>• Android 13 me One UI 5<br>• Dizajn premium, rezistencë IP68`
+}
+,
+{
+  name: "Samsung Galaxy A56",
+  price: 29500,
+  img: "/images/CategoryImages/Samsung/A56.jpg",
+  category: "telephones",
+  description: `• Ekran 6.7" FHD+ Super AMOLED, 120Hz<br>• Procesor Exynos 1480 – performancë e qëndrueshme<br>• Kamera trefishtë 50MP + 12MP + 5MP<br>• Kamera selfie 32MP<br>• Bateri 5000mAh me karikim të shpejtë 45W<br>• IP67 rezistencë ndaj ujit dhe pluhurit<br>• Android 14, përditësueshëm në Android 15<br>• Dizajn elegant, sensor nën ekran, mbështetje 5G`
+},
+{
+  name: "Samsung Galaxy A36",
+  price: 26000,
+  img: "/images/CategoryImages/Samsung/A36.jpg",
+  category: "telephones",
+  description: `• Ekran 6.6" FHD+ Super AMOLED, 120Hz<br>• Procesor Snapdragon 6 Gen 1 – performancë e qëndrueshme<br>• Kamera trefishtë 50MP + 8MP + 5MP<br>• Kamera selfie 13MP<br>• Bateri 5000mAh me karikim të shpejtë 25W<br>• IP67 rezistencë ndaj ujit dhe pluhurit<br>• Android 14, përditësueshëm në Android 15<br>• Stereo speaker, dizajn i hollë dhe modern`
+},
+{
+  name: "Samsung Galaxy A26",
+  price: 19900,
+  img: "/images/CategoryImages/Samsung/A26.jpg",
+  category: "telephones",
+  description: `• Ekran 6.7" Super AMOLED FHD+, 120Hz<br>• Procesor Exynos 1380 – performancë e qëndrueshme<br>• Kamera trefishtë 50MP + 8MP + 2MP<br>• Kamera selfie 13MP<br>• Bateri 5000mAh me karikim të shpejtë 25W<br>• IP67 rezistencë ndaj ujit dhe pluhurit<br>• Android 14, përditësueshëm në Android 15<br>• Stereo speaker, lexues gishtash anësor`
+},
+{
+  name: "Samsung Galaxy A16",
+  price: 13000,
+  img: "/images/CategoryImages/Samsung/A16.jpg",
+  category: "telephones",
+  description: `• Ekran 6.7" Super AMOLED FHD+, 90Hz<br>• Procesor Exynos 1330 – i përshtatshëm për përdorim të përditshëm<br>• Kamera trefishtë 50MP + 5MP + 2MP<br>• Kamera selfie 13MP<br>• Bateri 5000mAh me karikim të shpejtë 25W<br>• IP54 rezistencë ndaj ujit dhe pluhurit<br>• Android 14, me përditësime deri në Android 20<br>• Lexues gishtash anësor, mbështetje për microSD`
+},
+{
+  name: "Samsung Galaxy A06",
+  price: 9000,
+  img: "/images/CategoryImages/Samsung/A06.jpg",
+  category: "telephones",
+  description: `• Ekran 6.7" HD+ 90Hz<br>• Procesor Helio G85<br>• Kamera 50MP + 2MP<br>• Kamera selfie 8MP<br>• Bateri 5000mAh me karikim të shpejtë 25W<br>• Android 14<br>• Lexues gishtash anësor, mbështetje për microSD`
+},
+                         //scooters//
+{
+  name: "Lexgo L10",
+  price: 21000,
+  img: "/images/CategoryImages/Scooter/LEXGOL10.jpg",
+  category: "scooters",
+  description: `• Motor 250W, shpejtësi deri në 25 km/h<br>• Bateri 36V 5.2Ah – autonomi deri 20 km<br>• Ekran LED me sinjale kthese dhe dritë platforme<br>• Sistemi anti-vjedhje NFC me kartë ose kod<br>• Strukturë çeliku, peshë 14.8 kg, palosje e shpejtë`
+},
+{
+  name: "Lexgo L30",
+  price: 30000,
+  img: "/images/CategoryImages/Scooter/LEXGOL30.jpg",
+  category: "scooters",
+  description: `• Motor 400W (peak 800W), shpejtësi deri në 25 km/h<br>• Bateri 36V – autonomi deri në 30 km<br>• Rrota 10", amortizim i mirë dhe drita për kthesa<br>• Ekran LED me komandim të plotë<br>• Siguri me NFC dhe bllokim me fjalëkalim<br>• Strukturë çeliku, palosje e lehtë<br>• Ideal për lëvizje të përditshme me stil dhe siguri`
+},
+{
+  name: "Momodesign Evo 9",
+  price: 23000,
+  img: "/images/CategoryImages/Scooter/MOMODESIGNEvo9.jpg",
+  category: "scooters",
+  description: `• Motor 400W, shpejtësi deri në 25 km/h<br>• Bateri 36V 7.5Ah – autonomi deri 25 km<br>• Rrota 8.5" me ajër<br>• Freno disk mbrapa + elektrik përpara<br>• Drita kthesash, dritë para dhe pas<br>• Ekran LED, NFC anti-vjedhje<br>• Peshë 15 kg, mbajtje deri 100 kg<br>• Palosje e shpejtë, 3 nivele shpejtësie`
+},
+{
+  name: "Xiaomi Electric Scooter 4",
+  price: 39999,
+  img: "/images/CategoryImages/Scooter/Xiaomi4.jpg",
+  category: "scooters",
+  description: `• Motor 300W (max 600W), shpejtësi 25 km/h<br>• Bateri 275Wh – autonomi deri 35 km<br>• Rrota 10" tubeless<br>• Freno E-ABS përpara + disk mbrapa<br>• 3 nivele shpejtësie, ngjitje deri 16%<br>• Pesha 15 kg, kapacitet 110 kg<br>• IP54 rezistent ndaj ujit dhe pluhurit<br>• Karikim 5 orë`
+},
+{
+  name: "Kugoo G5",
+  price: 48000,
+  img: "/images/CategoryImages/Scooter/KUGOOG5.jpg",
+  category: "scooters",
+  description: `• Motor 500W, shpejtësi deri 35 km/h<br>• Bateri 48V 16Ah – autonomi deri 80 km<br>• Rrota 10" pneumatike, amortizatorë përpara dhe mbrapa<br>• Freno disk + elektrik<br>• Dritë para, pas dhe sinjalizues<br>• Ekran LCD, strukturë alumini çelik<br>• Pesha 23 kg, kapacitet 120 kg<br>• Karikim 5–6 orë, palosje e shpejtë`
+},
+{
+  name: "YouFs",
+  price: 22000,
+  img: "/images/CategoryImages/Scooter/YouFs.jpg",
+  category: "scooters",
+  description: `• Motor 350W, shpejtësi 30 km/h<br>• Bateri 36V 7.8–10.5Ah – autonomi 30–40 km<br>• Rrota 8.5"<br>• Freno E-ABS + disk mbrapa<br>• Dritë përpara dhe pas, klaks<br>• Bluetooth, app me lock dhe mod shpejtësie<br>• Karikim 4–6 orë, peshë 17 kg`
+},
+{
+  name: "FES01",
+  price: 22000,
+  img: "/images/CategoryImages/Scooter/FES01.jpg",
+  category: "scooters",
+  description: `• Motor 350W, shpejtësi 25 km/h<br>• Bateri 36V 7.8Ah – autonomi 25 km<br>• Goma 8.5" solide pa ajër<br>• Frenim disk mekanik<br>• Strukturë alumini, palosje e thjeshtë<br>• Kapacitet 120 kg<br>• IP65 rezistent ndaj ujit/pluhur<br>• Karikim 4 orë<br>• Modet ECO, Normal, Sport`
+},
+{
+  name: "Segway ZT3 Pro",
+  price: 63000,
+  img: "/images/CategoryImages/Scooter/SegwayZT3Pro.jpg",
+  category: "scooters",
+  description: `• Motor 1600W, shpejtësi 40 km/h<br>• Autonomi deri 70 km<br>• Suspension dyfish, amortizator përpara dhe pas<br>• Rrota 11" tubeless për terren të ashpër<br>• Frenë disk para dhe pas<br>• Kontroll traction TCS për stabilitet<br>• Pesha 29.7 kg, kapacitet 120 kg<br>• Karikim 4 orë<br>• Strukturë e fortë dhe dizajn profesional`
+},
+                  //smartwatches//
+ {
+  name: "Kieslect KR2",
+  price: 93000,
+  img: "/images/CategoryImages/SmartWatches/KieslectKR2.jpg",
+  category: "smartwatches",
+  description: `• Ekran 1.43" AMOLED, 466×466 px<br>• Dual-core, 60 FPS, kursim energjie<br>• Sensorë ritmi zemre dhe SpO₂ 3-në-1<br>• Monitorim 24/7: zemër, gjumë, stres<br>• 100+ modë sportive, thirrje Bluetooth 5.3<br>• Kontroll muzikor<br>• Bateri 360mAh deri 5 ditë përdorim<br>• 3 kurora digjitale, dizajn i rafinuar`
+},
+{
+  name: "Vokuss G14 Star",
+  price: 4000,
+  img: "/images/CategoryImages/SmartWatches/VokussG14Star.jpg",
+  category: "smartwatches",
+  description: `• Ekran 1.27" IPS, 240×240 px<br>• Bluetooth 5.0<br>• Monitorim shëndeti, guida sportive<br>• Thirrje dhe SMS<br>• Dizajn i lehtë dhe elegant`
+},
+{
+  name: "AIX Highfuture",
+  price: 95000,
+  img: "/images/CategoryImages/SmartWatches/AIXHighfuture.jpg",
+  category: "smartwatches",
+  description: `• Ekran 1.43" AMOLED, 466×466 px<br>• Çelik inox, Gorilla Glass<br>• Thirrje Bluetooth<br>• Monitorim zemre, SpO₂, gjumë<br>• 100+ modë sportive, bateri deri 10 ditë<br>• Rezistencë ndaj ujit 1ATM<br>• Kompatibil me Android dhe iOS`
+},
+{
+  name: "XO H140",
+  price: 3999,
+  img: "/images/CategoryImages/SmartWatches/XOH140.jpg",
+  category: "smartwatches",
+  description: `• Ekran 1.83" touchscreen, 240×284 px<br>• Kamera 8MP për video thirrje<br>• 4G, Wi-Fi, GPS, alarm SOS<br>• Bateri 650mAh deri 48 orë përdorim<br>• Kontroll i largët, kufizim zone<br>• Rrip silikoni, për fëmijë 3–12 vjeç`
+},
+{
+  name: "Kieslect KR Smart Calling",
+  price: 4900,
+  img: "/images/CategoryImages/SmartWatches/KieslectKRsmart.jpg",
+  category: "smartwatches",
+  description: `• Ekran 1.32" Semi-AMOLED, 360×360 px<br>• Thirrje Bluetooth, asistent zëri AI<br>• 70+ modë sportive<br>• Monitorim zemre, stres<br>• Karikim magnetik deri 3 ditë përdorim<br>• Kompatibil me Android dhe iOS`
+},
+{
+  name: "Telzeal TC41",
+  price: 7500,
+  img: "/images/CategoryImages/SmartWatches/TELZEALTC41.jpg",
+  category: "smartwatches",
+  description: `• Ekran 2.2" AMOLED, 448×528 px<br>• 6GB RAM, 64GB memorie<br>• SIM 4G/5G, Bluetooth 4.2<br>• Kamera 360°, Play Store (WhatsApp)<br>• Bateri 4 ditë përdorim<br>• 3 rripa, kompatibil me Android/iOS`
+},
+{
+  name: "Kieslect Lora 2",
+  price: 10500,
+  img: "/images/CategoryImages/SmartWatches/KIESLECTLORA2.jpg",
+  category: "smartwatches",
+  description: `• Ekran 1.3" AMOLED, 360×360 px<br>• Thirrje Bluetooth 5.2<br>• Monitorim zemre, SpO₂, gjumë, stres<br>• Funksione shëndeti femëror<br>• 100+ modë sportive<br>• Dizajn alumini: ari, rozë, vjollcë`
+},        
+                           //BoxMusic//
+{
+  name: "Moxom MX-SK42",
+  price: 3500,
+  img: "/images/CategoryImages/MusicBox/MoxomMXSK42.jpg",
+  category: "musicboxes",
+  description: `• Bluetooth 5.0, fuqi 10W<br>• LED shumëngjyrësh, efekt festiv<br>• Mikrofon për karaoke dhe thirrje<br>• TF Card, USB, AUX mbështetje<br>• Bateri 1200mAh deri 4 orë përdorim<br>• Kontroll me telekomandë, diapazon 10m`
+},
+{
+  name: "Moxom MX-SK51",
+  price: 14000,
+  img: "/images/CategoryImages/MusicBox/MoxomMKSK51.jpg",
+  category: "musicboxes",
+  description: `• Bluetooth 5.1, diapazon 10 m<br>• Fuqi 40W (2x20W)<br>• Dritë LED RGB, efekt festiv<br>• Mikrofon wireless për karaoke<br>• Bateri 3600mAh, 2–3 orë përdorim<br>• Përmasa 32x29.7x62.2 cm, peshë 6.15 kg`
+},
+                //AKSESORE//
+{
+  name: "Samsung 25W Super Fast Charger",
+  price: 1000,
+  img: "/images/CategoryImages/aksesore/25WFastCharger.jpg",
+  category: "accessories",
+  description: `• Fuqi 25W, ngarkim i shpejtë PD 3.0<br>• USB-C me kabllo Type-C<br>• Për Galaxy S21/S22/S23/S24/S25<br>• Mbrojtje nga mbinxehja dhe mbingarkesa<br>• Ngarkon 50% në rreth 30 minuta`
+},
+{
+  name: "Apple 25W USB‑C Power Adapter",
+  price: 1000,
+  img: "/images/CategoryImages/aksesore/AppleUSBC.jpg",
+  category: "accessories",
+  description: `• Fuqi 25W, ngarkim i shpejtë PD 3.0<br>• Për iPhone 13/14/15/16<br>• Ngarkon deri 50% për 25–30 minuta<br>• Certifikuar MFi, dizajn kompakt`
+},
+{
+  name: "Samsung Type-C Cable",
+  price: 1000,
+  img: "/images/CategoryImages/aksesore/SamsungTypeC.jpg",
+  category: "accessories",
+  description: `• USB-C në USB-C, fuqi deri 45W<br>• Transferim 480 Mb/s<br>• Gjatësi 1.8m, mbështet 25W dhe 45W<br>• Ngjyrë e bardhë ose e zezë`
+},
+{
+  name: "Apple USB-C to Lightning",
+  price: 1000,
+  img: "/images/CategoryImages/aksesore/AppleUsb.jpg",
+  category: "accessories",
+  description: `• USB-C në Lightning<br>• Fast Charging (deri 20W+)<br>• Transferim të dhënash të shpejtë<br>• Gjatësi 1m ose 2m<br>• Certifikuar MFi (Made for iPhone)`
+}
+];
+
+
+    // DOM elements
+    const productsList = document.getElementById('products-list');
+    const basketBody = document.getElementById('basket-body');
+    const basketTotal = document.getElementById('basket-total');
+    const basketCount = document.getElementById('basket-count');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const emptyBasket = document.getElementById('empty-basket');
+    let currentCategory = null;
+    let filteredSearch = "";
+
+    
+    // Initialize page
+    // Initialize page with optional category from URL hash
+document.addEventListener('DOMContentLoaded', () => {
+  // Get the hash from URL (like #telephones)
+  const hash = window.location.hash.substring(1).toLowerCase(); // remove "#" and lowercase it
+  const validCategories = ["telephones", "tablets", "scooters","laptops","musicboxes","smartwatches","accessories"]; // Add all your category names here
+
+  if (validCategories.includes(hash)) {
+    renderProducts(hash); // Only show products in this category
+  } else {
+    renderProducts(); // Show all products
+  }
+
+  updateBasketDisplay();
+});
+
+
+    // Render products to the page
+    function renderProducts(category = null) {
+      currentCategory = category;
+      productsList.innerHTML = "";
+
+      const searchNormalized = filteredSearch.toLowerCase().replace(/\s+/g, "");
+
+      const filteredProducts = products.filter(p => {
+        const nameNormalized = p.name.toLowerCase().replace(/\s+/g, "");
+        const descNormalized = p.description?.toLowerCase().replace(/\s+/g, "") || "";
+        const matchesCategory = !category || p.category === category;
+        const matchesSearch = nameNormalized.includes(searchNormalized) || descNormalized.includes(searchNormalized);
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filteredProducts.length === 0) {
+        productsList.innerHTML = `<p style="text-align:center; padding:2rem; color:#666;">Nuk u gjetën produkte.</p>`;
+        return;
+      }
+
+      filteredProducts.forEach((product, idx) => {
+        const card = document.createElement('div');
+        card.className = "product-card";
+        card.innerHTML = `
+          <img src="${product.img}" alt="${product.name}" />
+          <h3>${product.name}</h3>
+          <p>${product.description || ''}</p>
+          <p class="product-price">${formatPrice(product.price)} Lek</p>
+          <label>
+            <input type="checkbox" name="selectProduct" value="${idx}">
+            Përzgjidh
+          </label>
+          <button class="buy-btn" onclick="addToBasket('${product.name}', ${product.price})">Shto në Shportë</button>
+        `;
+        productsList.appendChild(card);
+      });
+    }
+
+    // Filter products based on search input
+    function filterProducts() {
+      const searchInput = document.getElementById("searchBar");
+      filteredSearch = searchInput.value.trim();
+      renderProducts(currentCategory);
+    }
+
+    // Format price with thousands separator
+    function formatPrice(price) {
+      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    // Add a single product to basket
+    function addToBasket(productName, price) {
+      let basket = JSON.parse(localStorage.getItem('basket')) || [];
+      const existingItem = basket.find(item => item.name === productName);
+      
+      if (existingItem) {
+        existingItem.qty += 1;
+      } else {
+        const product = products.find(p => p.name === productName);
+        basket.push({ 
+          name: productName, 
+          qty: 1, 
+          price: price,
+          img: product.img
+        });
+      }
+    
+      localStorage.setItem('basket', JSON.stringify(basket));
+      updateBasketDisplay();
+      
+      // Show confirmation
+      const confirmation = document.createElement('div');
+      confirmation.innerHTML = `${productName} u shtua në shportë!`;
+      confirmation.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--accent);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 1000;
+        animation: fadeInOut 3s forwards;
+      `;
+      document.body.appendChild(confirmation);
+      
+      setTimeout(() => {
+        document.body.removeChild(confirmation);
+      }, 3000);
+    }
+
+    // Add multiple selected products to basket
+    function addSelectedToBasket() {
+      let basket = JSON.parse(localStorage.getItem('basket')) || [];
+      const selected = document.querySelectorAll('input[name="selectProduct"]:checked');
+      
+      if (selected.length === 0) {
+        alert("Ju lutem përzgjidhni të paktën një produkt.");
+        return;
+      }
+      
+      selected.forEach(input => {
+        const product = products[parseInt(input.value)];
+        const existingItem = basket.find(item => item.name === product.name);
+        
+        if (existingItem) {
+          existingItem.qty += 1;
+        } else {
+          basket.push({ 
+            name: product.name, 
+            qty: 1, 
+            price: product.price,
+            img: product.img
+          });
+        }
+      });
+      
+      localStorage.setItem('basket', JSON.stringify(basket));
+      updateBasketDisplay();
+      clearSelections();
+    }
+
+    // Clear all selections
+    function clearSelections() {
+      document.querySelectorAll('input[name="selectProduct"]').forEach(input => input.checked = false);
+    }
+
+    // Update basket display
+    function updateBasketDisplay() {
+      const basket = JSON.parse(localStorage.getItem('basket')) || [];
+      basketBody.innerHTML = '';
+      
+      if (basket.length === 0) {
+        emptyBasket.style.display = 'block';
+        basketTotal.textContent = '0 Lek';
+        basketCount.textContent = '0';
+        checkoutBtn.style.display = 'none';
+        return;
+      }
+      
+      emptyBasket.style.display = 'none';
+      checkoutBtn.style.display = 'block';
+      
+      let total = 0;
+      let itemCount = 0;
+      
+      basket.forEach((item, index) => {
+        const subtotal = item.price * item.qty;
+        total += subtotal;
+        itemCount += item.qty;
+        
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <img src="${item.img}" alt="${item.name}" style="width:50px; height:50px; object-fit:cover; border-radius:5px;">
+              ${item.name}
+            </div>
+          </td>
+          <td>${formatPrice(item.price)} Lek</td>
+          <td>
+            <div class="qty-control">
+              <button class="qty-btn" onclick="updateQuantity(${index}, -1)">-</button>
+              ${item.qty}
+              <button class="qty-btn" onclick="updateQuantity(${index}, 1)">+</button>
+            </div>
+          </td>
+          <td>${formatPrice(subtotal)} Lek</td>
+          <td><button class="remove-btn" onclick="removeFromBasket(${index})">Hiq</button></td>
+        `;
+        basketBody.appendChild(row);
+      });
+      
+      basketTotal.textContent = `${formatPrice(total)} Lek`;
+      basketCount.textContent = itemCount;
+    }
+
+    // Update item quantity
+    function updateQuantity(index, change) {
+      let basket = JSON.parse(localStorage.getItem('basket')) || [];
+      
+      if (basket[index]) {
+        basket[index].qty += change;
+        
+        if (basket[index].qty < 1) {
+          basket.splice(index, 1);
+        }
+        
+        localStorage.setItem('basket', JSON.stringify(basket));
+        updateBasketDisplay();
+      }
+    }
+
+    // Remove item from basket
+    function removeFromBasket(index) {
+      let basket = JSON.parse(localStorage.getItem('basket')) || [];
+      
+      if (basket[index]) {
+        basket.splice(index, 1);
+        localStorage.setItem('basket', JSON.stringify(basket));
+        updateBasketDisplay();
+      }
+    }
+
+    // Initialize checkout process
+    checkoutBtn.onclick = function() {
+      const basket = JSON.parse(localStorage.getItem('basket')) || [];
+      
+      if (basket.length === 0) {
+        alert("Shporta juaj është e zbrazët!");
+        return;
+      }
+      
+      // Create WhatsApp message
+      let message = "Përshëndetje, jam i interesuar për produktet e mëposhtme:\n\n";
+      let total = 0;
+      
+      basket.forEach(item => {
+        const subtotal = item.price * item.qty;
+        total += subtotal;
+        message += `- ${item.name} (Sasia: ${item.qty}, Çmimi: ${formatPrice(item.price)} Lek)\n`;
+      });
+      
+      message += `\nTotal: ${formatPrice(total)} Lek\n\nJu lutem më ktheni një përgjigje.`;
+      
+      // Encode message for WhatsApp
+      const encodedMessage = encodeURIComponent(message);
+      const phone = "355698199816";
+      const whatsappURL = `https://wa.me/${phone}?text=${encodedMessage}`;
+      
+      // Open WhatsApp
+      window.open(whatsappURL, '_blank');
+    };
+
+    // CSS animations for notifications
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes fadeInOut {
+        0% { opacity: 0; transform: translateY(20px); }
+        10% { opacity: 1; transform: translateY(0); }
+        90% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(20px); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
