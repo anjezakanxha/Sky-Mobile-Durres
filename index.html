@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-  <head>
-<meta charset="UTF-8">
-<meta name="description" content="Sky Mobile Durres - Celularë, Aksesorë dhe Shërbime në Durrës">
-<meta name="keywords" content="Sky Mobile, Durrës, celularë, telefona, dyqan, aksesorë">
-<meta name="author" content="Anjeza Kanxha">
-<title>Sky Mobile Durrës</title>
-<link rel="icon" type="image/png" href="favicon32.png">
-</head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sky Mobile Durres - Celularë, Aksesorë dhe Shërbime në Durrës">
+  <meta name="keywords" content="Sky Mobile, Durrës, celularë, telefona, dyqan, aksesorë">
+  <meta name="author" content="Anjeza Kanxha">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SKY Mobile Durres - Pagesë me Keste me NOA & IUTE Credit</title>
+  
+  <!-- Fixed favicon declaration - using base64 encoded image for demonstration -->
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABkElEQVRYw+2WwUrDQBCGJ1cPvYgvoAcRfAC9+QKC4M1jL4LgA/QS9G0EBcGbJxEEwYMgeBEUvHj1IojgQcSDBw9ePHiQn8FJ2HSTbLKbFbHwwzC7O5n5/8z8M7NxHEd/KfEvB4iiaFJKeSGE2BNCjBzH6biuW3ddt1IqlbLJ/0uAIAgO0zR9Y4yFEO9xHH/med4Y4x9j/ML4jvEZ4x3jHcYbjFcYLzGeYzzFeIzxEOMBxn2Muxh3MG5h3MC4hnEV4wrGZYxLGJcwLmJcwLiAcR7jHMYZjDMYpzFOYZzEOIFxHOMYxlGMIxhHMA5jHMI4iHEAYz/GXoxm8X6QJMn1XwV4iqLonl7QcZJkDdZ1vR4EwT7Hw3vOe0EfYH0YhmdFgB7n0zR9lVIu+77f0f9XvF/5F7quy3Jd1+sYwzB8wvV6s9nsLQqQZdlHr9c7l1Iu8f9tXdfnFgL4vr+O8V5K+ez7/hbGtYUBqtXqKsbLJEmecL2JcWVRgFKp1MZ4zP2PcRvj8qIAvu9vYjzC/Y9xD+PKwgC1Wm0Z4wHuf4z7GNcWBvA8bwPjAe5/jPsY1xcGqFQqGxj3cf9j3Me4vjBAuVxex7iH+x/jPsb1hQFc113DuIv7H+Mexs2FAYIgWMO4jfsf4z7G7YUBPM9bw7iF+x/jPsathQFc113FuI37H+Mexr2FAYQQ0xi3cP9j3Me4vzBAv9+fwrjJ7/8b8Hf4xwAAAABJRU5ErkJggg==">
   
   <style>
     * {
@@ -37,6 +35,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
     }
     
     /* Stilizim i qëndrueshëm i Navigacionit */
@@ -141,7 +140,7 @@
       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     }
     
-    .hero video, .hero img {
+    .hero-image {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
@@ -252,7 +251,7 @@
     .featured-card img {
       width: 90%;
       height: 200px;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 12px;
       margin-bottom: 1.2rem;
       box-shadow: 0 4px 16px rgba(31,162,255,0.1);
@@ -756,7 +755,7 @@
   <!-- Navigacioni i qëndrueshëm -->
   <header>
     <div class="header-content">
-      <img src="logo.jpg" alt="Logoja e SKY Mobile Durres" class="logo">
+      <img src="https://via.placeholder.com/80x80/154e71/ffffff?text=SKY" alt="Logoja e SKY Mobile Durres" class="logo">
       <div>
         <h1 class="store-title">SKY Mobile Durres</h1>
         <nav>
@@ -782,10 +781,7 @@
   <div class="main-content">
     <!-- Seksioni Hero -->
     <div class="hero">
-      <video autoplay muted loop>
-        <source src="images/3946219-uhd_4096_2160_25fps.mp4" type="video/mp4" />
-        <img src="images/hero-fallback.jpg" alt="Dyqan Telefonash" />
-      </video>
+      <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="Dyqan Telefonash" class="hero-image">
       <div class="hero-content">
         <h1>Mirësevini në Dyqanin SKY Mobile</h1>
         <p>Zbuloni telefonat më të fundit, pajisjet dhe skuterat.<br>Pagesë me keste me NOA & IUTE Credit!</p>
@@ -800,7 +796,7 @@
         <!-- Telefonat -->
         <div class="featured-card">
           <span class="installment-badge">NOA & IUTE</span>
-          <img src="images/15promax.jpg" alt="Telefonat" />
+          <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Telefonat" />
           <h3>Telefonat</h3>
           <p>Telefonat më të fundit nga Apple, Samsung, Google dhe të tjerë.</p>
           <a href="products.html#telephones" class="buy-btn">Shiko Telefonat</a>
@@ -808,7 +804,7 @@
         <!-- Tabletët -->
         <div class="featured-card">
           <span class="installment-badge">NOA & IUTE</span>
-          <img src="tablets.jpg" alt="Tabletët" />
+          <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Tabletët" />
           <h3>Tabletët</h3>
           <p>iPad, Samsung Galaxy Tab dhe tabletat e tjera të njohura.</p>
           <a href="products.html#tablets" class="buy-btn">Shiko Tabletët</a>
@@ -816,7 +812,7 @@
         <!-- Skuterat -->
         <div class="featured-card">
           <span class="installment-badge">NOA & IUTE</span>
-          <img src="scooter.jpg" alt="Skuterat" />
+          <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Skuterat" />
           <h3>Skuterat</h3>
           <p>Skuterë elektrikë për lëvizje urbane.</p>
           <a href="products.html#scooters" class="buy-btn">Shiko Skuterat</a>
@@ -824,7 +820,7 @@
         <!-- Laptopët -->
         <div class="featured-card">
           <span class="installment-badge">NOA & IUTE</span>
-          <img src="laptops.jpg" alt="Laptopët" />
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Laptopët" />
           <h3>Laptopët</h3>
           <p>MacBook, Dell, Lenovo, HP dhe të tjerë.</p>
           <a href="products.html#laptops" class="buy-btn">Shiko Laptopët</a>
@@ -832,7 +828,7 @@
         <!-- Kutitë Bluetooth -->
         <div class="featured-card">
           <span class="installment-badge">NOA & IUTE</span>
-          <img src="boxMusic.jpg" alt="Kutitë Bluetooth" />
+          <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Kutitë Bluetooth" />
           <h3>Bluetooth Speaker</h3>
           <p> Bluetooth Speakers.</p>
           <a href="products.html#musicboxes" class="buy-btn">Shiko Bluetooth Speakers</a>
@@ -840,7 +836,7 @@
         <!-- Orët Inteligjente -->
         <div class="featured-card">
           <span class="installment-badge">NOA & IUTE</span>
-          <img src="smartwatch.jpg" alt="SmartWatches" />
+          <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="SmartWatches" />
           <h3>SmartWatches</h3>
           <p>Apple Watch, Samsung Galaxy Watch, Garmin dhe të tjerë.</p>
           <a href="products.html#smartwatches" class="buy-btn">Shiko Smart Watches</a>
@@ -848,7 +844,7 @@
         <!-- Aksesorët -->
         <div class="featured-card">
           <span class="installment-badge">NOA & IUTE</span>
-          <img src="airpods.jpg" alt="Aksesorët" />
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Aksesorët" />
           <h3>Aksesorët</h3>
           <p>Kufje, kuti, karikues dhe më shumë.</p>
           <a href="products.html#accessories" class="buy-btn">Shiko Aksesorët</a>
@@ -864,7 +860,7 @@
       <h2 class="section-title">Partnerët Tanë për Pagesë me Keste</h2>
       <div class="partners-grid">
         <div class="partner-card">
-          <img src="noabank.png" alt="NOA">
+          <img src="https://via.placeholder.com/200x80/154e71/ffffff?text=NOA+BANK" alt="NOA">
           <h3>Pagesa me Keste me NOA</h3>
           <ul>
             <li>Deri në 12 keste pa kamatë</li>
@@ -877,7 +873,7 @@
         </div>
         
         <div class="partner-card">
-          <img src="Iute.png" alt="IUTE Credit">
+          <img src="https://via.placeholder.com/200x80/1fa2ff/ffffff?text=IUTE+CREDIT" alt="IUTE Credit">
           <h3>Pagesa me Keste me IUTE Credit</h3>
           <ul>
             <li>Deri në 18 keste pa kamatë</li>
