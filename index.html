@@ -11,6 +11,7 @@
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
     :root {
       --primary: #111;           /* Black for main color */
       --secondary: #444;         /* Dark gray for gradients */
@@ -19,6 +20,7 @@
       --light: #f5f5f5;          /* Lighter background */
       --dark: #222;              /* Footer and text */
     }
+
     body {
       background: linear-gradient(120deg, var(--light) 0%, #e0e0e0 100%);
       color: var(--dark);
@@ -27,6 +29,7 @@
       display: flex;
       flex-direction: column;
     }
+
     header {
       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       color: #fff;
@@ -38,6 +41,7 @@
       top: 0;
       z-index: 100;
     }
+
     .header-content {
       display: flex;
       align-items: center;
@@ -47,15 +51,18 @@
       margin: 0 auto;
       padding: 0 1rem;
     }
+
     .logo {
       height: 80px;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
+
     .store-title {
       font-size: 2.5rem;
       margin: 0;
       text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
+
     nav {
       display: flex;
       gap: 1.5rem;
@@ -63,6 +70,7 @@
       flex-wrap: wrap;
       justify-content: center;
     }
+
     nav a {
       color: #fff;
       text-decoration: none;
@@ -76,6 +84,7 @@
     nav a.active {
       background: rgba(255,255,255,0.15);
     }
+
     .basket-icon {
       position: relative;
       display: inline-block;
@@ -96,9 +105,11 @@
       font-size: 0.8rem;
       font-weight: bold;
     }
+
     .main-content {
       flex: 1;
     }
+
     .hero {
       position: relative;
       width: 100%;
@@ -113,6 +124,7 @@
       margin-bottom: 3rem;
       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     }
+
     .hero video, .hero img {
       position: absolute;
       top: 0; left: 0;
@@ -121,6 +133,7 @@
       z-index: 0;
       filter: brightness(0.6);
     }
+
     .hero-content {
       position: relative;
       z-index: 1;
@@ -129,6 +142,7 @@
       max-width: 800px;
       margin: 0 auto;
     }
+
     .hero-content h1 {
       font-size: 3.5rem;
       margin-bottom: 1.5rem;
@@ -137,6 +151,7 @@
       font-family: 'Segoe UI', Arial, sans-serif;
       animation: fadeInUp 1s ease;
     }
+
     .hero-content p {
       font-size: 1.5rem;
       margin-bottom: 2.5rem;
@@ -144,6 +159,7 @@
       font-family: 'Segoe UI', Arial, sans-serif;
       animation: fadeInUp 1.2s ease;
     }
+
     .hero-content .btn {
       padding: 0.9rem 2.5rem;
       border: none;
@@ -164,6 +180,7 @@
       transform: scale(1.05);
       box-shadow: 0 6px 16px rgba(31,162,255,0.25);
     }
+
     .section-title {
       text-align: center;
       color: var(--primary);
@@ -183,6 +200,7 @@
       background: linear-gradient(90deg, var(--primary), var(--accent2));
       border-radius: 3px;
     }
+
     .featured-products {
       max-width: 1200px;
       margin: 0 auto 3rem auto;
@@ -191,6 +209,7 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2.5rem;
     }
+
     .featured-card {
       background: #fff;
       border-radius: 18px;
@@ -260,6 +279,7 @@
       transform: translateY(-3px);
       box-shadow: 0 6px 16px rgba(31,162,255,0.2);
     }
+
     .about-section, .contact-section {
       max-width: 1000px;
       margin: 3rem auto;
@@ -306,6 +326,7 @@
     .contact-section a:hover::after {
       transform: scaleX(1);
     }
+
     .view-all {
       text-align: center;
       margin: 3rem 0;
@@ -329,6 +350,7 @@
       transform: scale(1.05);
       box-shadow: 0 6px 16px rgba(31,162,255,0.25);
     }
+
     footer {
       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       color: #fff;
@@ -365,17 +387,8 @@
       font-size: 1.1rem;
       opacity: 0.9;
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-    .featured-card:nth-child(1) { animation-delay: 0.1s; }
-    .featured-card:nth-child(2) { animation-delay: 0.2s; }
-    .featured-card:nth-child(3) { animation-delay: 0.3s; }
-    .featured-card:nth-child(4) { animation-delay: 0.4s; }
-    .featured-card:nth-child(5) { animation-delay: 0.5s; }
-    .featured-card:nth-child(6) { animation-delay: 0.6s; }
-    .featured-card:nth-child(7) { animation-delay: 0.7s; }
+
+    /* Promo banner: orange to black */
     .promo-banner {
       background: linear-gradient(90deg, var(--accent2) 0%, var(--primary) 100%);
       color: #fff;
@@ -404,6 +417,7 @@
     .promo-banner .close-btn:hover {
       background: var(--primary);
     }
+
     .installment-badge {
       position: absolute;
       top: 15px;
@@ -417,11 +431,13 @@
       z-index: 10;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
+
     .installment-section {
       background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
       padding: 4rem 1rem;
       margin: 3rem 0;
     }
+
     .installment-content {
       max-width: 1200px;
       margin: 0 auto;
@@ -464,6 +480,7 @@
       border-radius: 16px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
+
     .partners-section {
       max-width: 1200px;
       margin: 3rem auto;
@@ -516,6 +533,7 @@
       font-weight: bold;
       font-size: 1.5rem;
     }
+
     @media (max-width: 1024px) {
       .hero-content h1 { font-size: 3rem; }
       .hero-content p { font-size: 1.3rem; }
@@ -658,7 +676,7 @@
       <h2 class="section-title">Partnerët Tanë për Pagesë me Keste</h2>
       <div class="partners-grid">
         <div class="partner-card">
-          <img src="images/noabank.png" alt="NOA">
+          <img src="/images/noabank.png" alt="NOA">
           <h3>Pagesa me Keste me NOA</h3>
           <ul>
             <li>Deri në 12 keste pa kamatë</li>
@@ -669,6 +687,7 @@
             <li>Mosha minimale: 18 vjeç</li>
           </ul>
         </div>
+        
         <div class="partner-card">
           <img src="images/Iute.png" alt="IUTE Credit">
           <h3>Pagesa me Keste me IUTE Credit</h3>
@@ -775,9 +794,4 @@
           }
         });
       });
-      // Event listener për butonin e mbylljes së shiritit reklamues
-      document.querySelector('.promo-banner .close-btn').addEventListener('click', closePromoBanner);
-    });
-  </script>
-</body>
-</html>
+      // Event listener për butonin
