@@ -1,19 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-  <head>
-<meta charset="UTF-8">
-<meta name="description" content="Sky Mobile Durres - Celularë, Aksesorë dhe Shërbime në Durrës">
-<meta name="keywords" content="Sky Mobile, Durrës, celularë, telefona, dyqan, aksesorë">
-<meta name="author" content="Anjeza Kanxha">
-<title>Sky Mobile Durrës</title>
-<link rel="icon" type="image/png" href="favicon32.png">
-</head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SKY Mobile Durres - Pagesë me Keste me NOA & IUTE Credit</title>
-  
   <style>
     * {
       margin: 0;
@@ -21,38 +11,33 @@
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    
     :root {
-      --primary: #154e71;
-      --secondary: #1fa2ff;
-      --accent: #25d366;
-      --accent2: #ff9d00;
-      --light: #f0f4f8;
-      --dark: #333;
+      --primary: #111;           /* Black for main color */
+      --secondary: #444;         /* Dark gray for gradients */
+      --accent: #25d366;         /* WhatsApp green accent */
+      --accent2: #ff9d00;        /* Orange accent */
+      --light: #f5f5f5;          /* Lighter background */
+      --dark: #222;              /* Footer and text */
     }
-    
     body {
-      background: linear-gradient(120deg, #eaf6fb 0%, #f7fafd 100%);
-      color: #333;
+      background: linear-gradient(120deg, var(--light) 0%, #e0e0e0 100%);
+      color: var(--dark);
       line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
-    
-    /* Stilizim i qëndrueshëm i Navigacionit */
     header {
       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       color: #fff;
       padding: 1rem 0;
       text-align: center;
-      box-shadow: 0 2px 16px rgba(21,78,113,0.10);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
       border-radius: 0 0 24px 24px;
       position: sticky;
       top: 0;
       z-index: 100;
     }
-    
     .header-content {
       display: flex;
       align-items: center;
@@ -62,18 +47,15 @@
       margin: 0 auto;
       padding: 0 1rem;
     }
-    
     .logo {
       height: 80px;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
-    
     .store-title {
       font-size: 2.5rem;
       margin: 0;
       text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
-    
     nav {
       display: flex;
       gap: 1.5rem;
@@ -81,7 +63,6 @@
       flex-wrap: wrap;
       justify-content: center;
     }
-    
     nav a {
       color: #fff;
       text-decoration: none;
@@ -91,21 +72,15 @@
       transition: all 0.3s ease;
       font-size: 1.1rem;
     }
-    
-    nav a:hover {
-      background: rgba(255,255,255,0.2);
-    }
-    
+    nav a:hover,
     nav a.active {
-      background: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.15);
     }
-    
     .basket-icon {
       position: relative;
       display: inline-block;
       margin-left: 0.5rem;
     }
-    
     .basket-count {
       position: absolute;
       top: -8px;
@@ -121,12 +96,9 @@
       font-size: 0.8rem;
       font-weight: bold;
     }
-    
-    /* Stilizim i Përmbajtjes Kryesore */
     .main-content {
       flex: 1;
     }
-    
     .hero {
       position: relative;
       width: 100%;
@@ -137,11 +109,10 @@
       color: #fff;
       overflow: hidden;
       border-radius: 0 0 32px 32px;
-      box-shadow: 0 8px 32px rgba(21,78,113,0.12);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
       margin-bottom: 3rem;
       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     }
-    
     .hero video, .hero img {
       position: absolute;
       top: 0; left: 0;
@@ -150,7 +121,6 @@
       z-index: 0;
       filter: brightness(0.6);
     }
-    
     .hero-content {
       position: relative;
       z-index: 1;
@@ -159,7 +129,6 @@
       max-width: 800px;
       margin: 0 auto;
     }
-    
     .hero-content h1 {
       font-size: 3.5rem;
       margin-bottom: 1.5rem;
@@ -168,7 +137,6 @@
       font-family: 'Segoe UI', Arial, sans-serif;
       animation: fadeInUp 1s ease;
     }
-    
     .hero-content p {
       font-size: 1.5rem;
       margin-bottom: 2.5rem;
@@ -176,7 +144,6 @@
       font-family: 'Segoe UI', Arial, sans-serif;
       animation: fadeInUp 1.2s ease;
     }
-    
     .hero-content .btn {
       padding: 0.9rem 2.5rem;
       border: none;
@@ -185,20 +152,18 @@
       font-weight: bold;
       cursor: pointer;
       text-decoration: none;
-      background: linear-gradient(90deg, #154e71 60%, #1fa2ff 100%);
+      background: linear-gradient(90deg, var(--primary) 60%, var(--accent2) 100%);
       color: #fff;
       box-shadow: 0 4px 12px rgba(31,162,255,0.15);
       transition: all 0.3s ease;
       letter-spacing: 1px;
       animation: fadeInUp 1.4s ease;
     }
-    
     .hero-content .btn:hover {
-      background: linear-gradient(90deg, #1fa2ff 60%, #154e71 100%);
+      background: linear-gradient(90deg, var(--accent2) 60%, var(--primary) 100%);
       transform: scale(1.05);
       box-shadow: 0 6px 16px rgba(31,162,255,0.25);
     }
-    
     .section-title {
       text-align: center;
       color: var(--primary);
@@ -207,7 +172,6 @@
       position: relative;
       padding-bottom: 0.5rem;
     }
-    
     .section-title::after {
       content: '';
       position: absolute;
@@ -216,10 +180,9 @@
       transform: translateX(-50%);
       width: 100px;
       height: 5px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: linear-gradient(90deg, var(--primary), var(--accent2));
       border-radius: 3px;
     }
-    
     .featured-products {
       max-width: 1200px;
       margin: 0 auto 3rem auto;
@@ -228,11 +191,10 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2.5rem;
     }
-    
     .featured-card {
       background: #fff;
       border-radius: 18px;
-      box-shadow: 0 6px 24px rgba(21,78,113,0.1);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
       padding: 1.8rem;
       display: flex;
       flex-direction: column;
@@ -240,16 +202,16 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-      border: 2px solid #eaf6fb;
+      border: 2px solid #e0e0e0;
+      animation: fadeInUp 0.6s ease-out;
+      animation-fill-mode: both;
     }
-    
     .featured-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 12px 32px rgba(21,78,113,0.2);
-      border-color: var(--secondary);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+      border-color: var(--accent2);
       z-index: 2;
     }
-    
     .featured-card img {
       width: 90%;
       height: 200px;
@@ -257,21 +219,18 @@
       border-radius: 12px;
       margin-bottom: 1.2rem;
       box-shadow: 0 4px 16px rgba(31,162,255,0.1);
-      border: 1px solid #eaf6fb;
+      border: 1px solid #e0e0e0;
       transition: transform 0.3s ease;
     }
-    
     .featured-card:hover img {
       transform: scale(1.05);
     }
-    
     .featured-card h3 {
       margin: 0.8rem 0 0.4rem 0;
       font-size: 1.4rem;
       color: var(--primary);
       font-family: 'Segoe UI', Arial, sans-serif;
     }
-    
     .featured-card p {
       margin: 0.4rem 0;
       color: #555;
@@ -280,11 +239,10 @@
       text-align: center;
       min-height: 60px;
     }
-    
     .featured-card .buy-btn {
       margin-top: 1.2rem;
       padding: 0.7rem 1.8rem;
-      background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+      background: linear-gradient(90deg, var(--primary) 60%, var(--accent2) 100%);
       color: #fff;
       border: none;
       border-radius: 8px;
@@ -297,46 +255,40 @@
       letter-spacing: 1px;
       font-size: 1.1rem;
     }
-    
     .featured-card .buy-btn:hover {
-      background: linear-gradient(90deg, var(--secondary) 60%, var(--primary) 100%);
+      background: linear-gradient(90deg, var(--accent2) 60%, var(--primary) 100%);
       transform: translateY(-3px);
       box-shadow: 0 6px 16px rgba(31,162,255,0.2);
     }
-    
     .about-section, .contact-section {
       max-width: 1000px;
       margin: 3rem auto;
       background: #fff;
       border-radius: 18px;
-      box-shadow: 0 6px 24px rgba(21,78,113,0.08);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
       padding: 3rem;
       text-align: center;
       font-family: 'Segoe UI', Arial, sans-serif;
     }
-    
     .about-section h2, .contact-section h2 {
       color: var(--primary);
       margin-bottom: 1.5rem;
       font-size: 2.2rem;
       letter-spacing: 1px;
     }
-    
     .about-section p, .contact-section p {
       font-size: 1.15rem;
       color: #444;
       margin-bottom: 1.5rem;
       line-height: 1.8;
     }
-    
     .contact-section a {
-      color: var(--secondary);
+      color: var(--accent2);
       font-weight: bold;
       text-decoration: none;
       transition: color 0.2s;
       position: relative;
     }
-    
     .contact-section a::after {
       content: '';
       position: absolute;
@@ -344,24 +296,20 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background: var(--secondary);
+      background: var(--accent2);
       transform: scaleX(0);
       transition: transform 0.3s ease;
     }
-    
     .contact-section a:hover {
       color: var(--primary);
     }
-    
     .contact-section a:hover::after {
       transform: scaleX(1);
     }
-    
     .view-all {
       text-align: center;
       margin: 3rem 0;
     }
-    
     .view-all .btn {
       padding: 0.9rem 2.5rem;
       border: none;
@@ -370,20 +318,17 @@
       font-weight: bold;
       cursor: pointer;
       text-decoration: none;
-      background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+      background: linear-gradient(90deg, var(--primary) 60%, var(--accent2) 100%);
       color: #fff;
       box-shadow: 0 4px 12px rgba(31,162,255,0.15);
       transition: all 0.3s ease;
       letter-spacing: 1px;
     }
-    
     .view-all .btn:hover {
-      background: linear-gradient(90deg, var(--secondary) 60%, var(--primary) 100%);
+      background: linear-gradient(90deg, var(--accent2) 60%, var(--primary) 100%);
       transform: scale(1.05);
       box-shadow: 0 6px 16px rgba(31,162,255,0.25);
     }
-    
-    /* Stilizim i qëndrueshëm i Futëres */
     footer {
       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       color: #fff;
@@ -392,7 +337,6 @@
       margin-top: 4rem;
       border-radius: 24px 24px 0 0;
     }
-    
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
@@ -400,14 +344,12 @@
       flex-direction: column;
       gap: 1.8rem;
     }
-    
     .footer-links {
       display: flex;
       justify-content: center;
       gap: 2.5rem;
       flex-wrap: wrap;
     }
-    
     .footer-links a {
       color: #fff;
       text-decoration: none;
@@ -415,46 +357,18 @@
       font-size: 1.1rem;
       font-weight: 500;
     }
-    
     .footer-links a:hover {
       opacity: 0.8;
       text-decoration: underline;
     }
-    
     .copyright {
       font-size: 1.1rem;
       opacity: 0.9;
     }
-    
-    /* Animacione */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
     }
-    
-    @keyframes float {
-      0% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-15px);
-      }
-      100% {
-        transform: translateY(0px);
-      }
-    }
-    
-    .featured-card {
-      animation: fadeInUp 0.6s ease-out;
-      animation-fill-mode: both;
-    }
-    
     .featured-card:nth-child(1) { animation-delay: 0.1s; }
     .featured-card:nth-child(2) { animation-delay: 0.2s; }
     .featured-card:nth-child(3) { animation-delay: 0.3s; }
@@ -462,11 +376,9 @@
     .featured-card:nth-child(5) { animation-delay: 0.5s; }
     .featured-card:nth-child(6) { animation-delay: 0.6s; }
     .featured-card:nth-child(7) { animation-delay: 0.7s; }
-    
-    /* Stile të reja për shiritat reklamë dhe pagesën me keste */
     .promo-banner {
-      background: linear-gradient(90deg, var(--accent2) 0%, #ffce00 100%);
-      color: var(--primary);
+      background: linear-gradient(90deg, var(--accent2) 0%, var(--primary) 100%);
+      color: #fff;
       text-align: center;
       padding: 0.8rem;
       font-weight: bold;
@@ -475,13 +387,12 @@
       z-index: 99;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    
     .promo-banner .close-btn {
       position: absolute;
       right: 15px;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(21, 78, 113, 0.3);
+      background: rgba(34, 34, 34, 0.3);
       border: none;
       border-radius: 50%;
       width: 24px;
@@ -490,16 +401,14 @@
       cursor: pointer;
       font-size: 0.9rem;
     }
-    
     .promo-banner .close-btn:hover {
       background: var(--primary);
     }
-    
     .installment-badge {
       position: absolute;
       top: 15px;
       right: 15px;
-      background: linear-gradient(135deg, #25d366 0%, #1fa2ff 100%);
+      background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
       color: white;
       padding: 0.3rem 0.8rem;
       border-radius: 20px;
@@ -508,13 +417,11 @@
       z-index: 10;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-    
     .installment-section {
-      background: linear-gradient(135deg, #f0f4f8 0%, #e3ebf5 100%);
+      background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
       padding: 4rem 1rem;
       margin: 3rem 0;
     }
-    
     .installment-content {
       max-width: 1200px;
       margin: 0 auto;
@@ -523,33 +430,28 @@
       gap: 3rem;
       align-items: center;
     }
-    
     .installment-text h2 {
       color: var(--primary);
       margin-bottom: 1.5rem;
       font-size: 2.2rem;
     }
-    
     .installment-text p {
       font-size: 1.15rem;
       margin-bottom: 1.5rem;
       color: #444;
       line-height: 1.7;
     }
-    
     .installment-text ul {
       list-style: none;
       padding: 0;
       margin-bottom: 2rem;
     }
-    
     .installment-text ul li {
       padding-left: 2rem;
       position: relative;
       margin-bottom: 0.8rem;
       font-size: 1.1rem;
     }
-    
     .installment-text ul li::before {
       content: '✓';
       position: absolute;
@@ -557,199 +459,90 @@
       color: var(--accent);
       font-weight: bold;
     }
-    
     .installment-image img {
       width: 100%;
       border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(21,78,113,0.15);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
-    
-    /* Partnerët e pagesës me keste */
     .partners-section {
       max-width: 1200px;
       margin: 3rem auto;
       text-align: center;
     }
-    
     .partners-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
-    
     .partner-card {
       background: white;
       border-radius: 16px;
       padding: 2rem;
-      box-shadow: 0 6px 24px rgba(21,78,113,0.1);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
-      border: 2px solid #eaf6fb;
+      border: 2px solid #e0e0e0;
     }
-    
     .partner-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 12px 32px rgba(21,78,113,0.2);
-      border-color: var(--secondary);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+      border-color: var(--accent2);
     }
-    
     .partner-card img {
       height: 80px;
       margin-bottom: 1.5rem;
       object-fit: contain;
     }
-    
     .partner-card h3 {
       color: var(--primary);
       margin-bottom: 1rem;
     }
-    
     .partner-card ul {
       list-style: none;
       padding: 0;
       text-align: left;
     }
-    
     .partner-card ul li {
       padding-left: 1.5rem;
       position: relative;
       margin-bottom: 0.8rem;
       font-size: 1rem;
     }
-    
     .partner-card ul li::before {
       content: '•';
       position: absolute;
       left: 0;
-      color: var(--secondary);
+      color: var(--accent2);
       font-weight: bold;
       font-size: 1.5rem;
     }
-    
-    /* Stile për pajisjet celulare */
     @media (max-width: 1024px) {
-      .hero-content h1 {
-        font-size: 3rem;
-      }
-      
-      .hero-content p {
-        font-size: 1.3rem;
-      }
+      .hero-content h1 { font-size: 3rem; }
+      .hero-content p { font-size: 1.3rem; }
     }
-    
     @media (max-width: 768px) {
-      .header-content {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      
-      .store-title {
-        font-size: 2.2rem;
-      }
-      
-      nav {
-        gap: 0.8rem;
-      }
-      
-      .featured-products {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.8rem;
-      }
-      
-      .hero {
-        height: 60vh;
-      }
-      
-      .hero-content h1 {
-        font-size: 2.5rem;
-      }
-      
-      .section-title {
-        font-size: 2.2rem;
-      }
-      
-      .about-section, .contact-section {
-        padding: 2rem;
-      }
-      
-      .installment-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      
-      .installment-text {
-        text-align: center;
-      }
-      
-      .installment-text ul li {
-        padding-left: 0;
-        text-align: left;
-        padding-left: 2rem;
-      }
+      .header-content { flex-direction: column; gap: 1rem; }
+      .store-title { font-size: 2.2rem; }
+      nav { gap: 0.8rem; }
+      .featured-products { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.8rem; }
+      .hero { height: 60vh; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .section-title { font-size: 2.2rem; }
+      .about-section, .contact-section { padding: 2rem; }
+      .installment-content { grid-template-columns: 1fr; gap: 2rem; }
+      .installment-text { text-align: center; }
+      .installment-text ul li { padding-left: 0; text-align: left; padding-left: 2rem; }
     }
-    
     @media (max-width: 480px) {
-      .hero {
-        height: 50vh;
-      }
-      
-      .hero-content h1 {
-        font-size: 2rem;
-      }
-      
-      .hero-content p {
-        font-size: 1.1rem;
-      }
-      
-      .store-title {
-        font-size: 1.8rem;
-      }
-      
-      /* Optimized mobile navigation */
-      .header-content {
-        flex-direction: column;
-        padding: 0.5rem 1rem;
-        gap: 0.5rem;
-      }
-      
-      .logo {
-        height: 60px;
-      }
-      
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.3rem;
-        margin-top: 0.5rem;
-      }
-      
-      nav a {
-        font-size: 0.85rem;
-        padding: 0.3rem 0.6rem;
-        white-space: nowrap;
-      }
-      
-      .basket-icon {
-        font-size: 0.85rem;
-      }
-      
-      .section-title {
-        font-size: 1.8rem;
-      }
-      
-      .featured-card {
-        padding: 1.5rem;
-      }
-      
-      .featured-card img {
-        height: 180px;
-      }
-      
-      .footer-links {
-        flex-direction: column;
-        gap: 1rem;
-      }
+      .hero { height: 50vh; }
+      .hero-content h1 { font-size: 2rem; }
+      .hero-content p { font-size: 1.1rem; }
+      .store-title { font-size: 1.8rem; }
+      nav { flex-direction: column; gap: 0.5rem; }
+      .footer-links { flex-direction: column; gap: 1rem; }
+      .section-title { font-size: 1.8rem; }
+      .featured-card { padding: 1.5rem; }
+      .featured-card img { height: 180px; }
     }
   </style>
 </head>
@@ -757,7 +550,7 @@
   <!-- Navigacioni i qëndrueshëm -->
   <header>
     <div class="header-content">
-      <img src="logo.jpg" alt="Logoja e SKY Mobile Durres" class="logo">
+      <img src="images/logo.jpg" alt="Logoja e SKY Mobile Durres" class="logo">
       <div>
         <h1 class="store-title">SKY Mobile Durres</h1>
         <nav>
@@ -809,7 +602,7 @@
         <!-- Tabletët -->
         <div class="featured-card">
           <span class="installment-badge">NOA & IUTE</span>
-          <img src="tablets.jpg" alt="Tabletët" />
+          <img src="images/tablets.jpg" alt="Tabletët" />
           <h3>Tabletët</h3>
           <p>iPad, Samsung Galaxy Tab dhe tabletat e tjera të njohura.</p>
           <a href="products.html#tablets" class="buy-btn">Shiko Tabletët</a>
@@ -817,7 +610,7 @@
         <!-- Skuterat -->
         <div class="featured-card">
           <span class="installment-badge">NOA & IUTE</span>
-          <img src="scooter.jpg" alt="Skuterat" />
+          <img src="images/scooter.jpg" alt="Skuterat" />
           <h3>Skuterat</h3>
           <p>Skuterë elektrikë për lëvizje urbane.</p>
           <a href="products.html#scooters" class="buy-btn">Shiko Skuterat</a>
@@ -825,7 +618,7 @@
         <!-- Laptopët -->
         <div class="featured-card">
           <span class="installment-badge">NOA & IUTE</span>
-          <img src="laptops.jpg" alt="Laptopët" />
+          <img src="images/laptops.jpg" alt="Laptopët" />
           <h3>Laptopët</h3>
           <p>MacBook, Dell, Lenovo, HP dhe të tjerë.</p>
           <a href="products.html#laptops" class="buy-btn">Shiko Laptopët</a>
@@ -833,23 +626,23 @@
         <!-- Kutitë Bluetooth -->
         <div class="featured-card">
           <span class="installment-badge">NOA & IUTE</span>
-          <img src="boxMusic.jpg" alt="Kutitë Bluetooth" />
-          <h3>Bluetooth Speaker</h3>
-          <p> Bluetooth Speakers.</p>
-          <a href="products.html#musicboxes" class="buy-btn">Shiko Bluetooth Speakers</a>
+          <img src="images/boxMusic.jpg" alt="Kutitë Bluetooth" />
+          <h3>Kutitë Bluetooth</h3>
+          <p>Kutitë Bluetooth dhe sisteme të zërit portative.</p>
+          <a href="products.html#musicboxes" class="buy-btn">Shiko Kutitë Bluetooth</a>
         </div>
         <!-- Orët Inteligjente -->
         <div class="featured-card">
           <span class="installment-badge">NOA & IUTE</span>
-          <img src="smartwatch.jpg" alt="SmartWatches" />
-          <h3>SmartWatches</h3>
+          <img src="images/smartwatch.jpg" alt="Orët Inteligjente" />
+          <h3>Orët Inteligjente</h3>
           <p>Apple Watch, Samsung Galaxy Watch, Garmin dhe të tjerë.</p>
-          <a href="products.html#smartwatches" class="buy-btn">Shiko Smart Watches</a>
+          <a href="products.html#smartwatches" class="buy-btn">Shiko Orët Inteligjente</a>
         </div>
         <!-- Aksesorët -->
         <div class="featured-card">
           <span class="installment-badge">NOA & IUTE</span>
-          <img src="airpods.jpg" alt="Aksesorët" />
+          <img src="images/airpods.jpg" alt="Aksesorët" />
           <h3>Aksesorët</h3>
           <p>Kufje, kuti, karikues dhe më shumë.</p>
           <a href="products.html#accessories" class="buy-btn">Shiko Aksesorët</a>
@@ -865,7 +658,7 @@
       <h2 class="section-title">Partnerët Tanë për Pagesë me Keste</h2>
       <div class="partners-grid">
         <div class="partner-card">
-          <img src="noabank.png" alt="NOA">
+          <img src="images/noabank.png" alt="NOA">
           <h3>Pagesa me Keste me NOA</h3>
           <ul>
             <li>Deri në 12 keste pa kamatë</li>
@@ -876,9 +669,8 @@
             <li>Mosha minimale: 18 vjeç</li>
           </ul>
         </div>
-        
         <div class="partner-card">
-          <img src="Iute.png" alt="IUTE Credit">
+          <img src="images/Iute.png" alt="IUTE Credit">
           <h3>Pagesa me Keste me IUTE Credit</h3>
           <ul>
             <li>Deri në 18 keste pa kamatë</li>
@@ -948,15 +740,13 @@
       const count = basket.reduce((total, item) => total + item.qty, 0);
       document.getElementById('basket-count').textContent = count;
     }
-    
     // Theksimi i faqes aktive në navigacion
     function setActiveNavLink() {
       const currentPage = window.location.pathname.split('/').pop();
       const navLinks = document.querySelectorAll('nav a');
-      
       navLinks.forEach(link => {
         const linkPage = link.getAttribute('href').split('/').pop();
-        if (currentPage === linkPage || 
+        if (currentPage === linkPage ||
             (currentPage === 'index.html' && linkPage === '#featured-categories')) {
           link.classList.add('active');
         } else {
@@ -964,22 +754,18 @@
         }
       });
     }
-    
     // Funksioni për mbylljen e shiritit reklamues
     function closePromoBanner() {
       document.querySelector('.promo-banner').style.display = 'none';
     }
-    
     // Inicializimi kur faqja ngarkohet
     document.addEventListener('DOMContentLoaded', () => {
       updateBasketCount();
       setActiveNavLink();
-      
       // Shtimi i scrollimit të butë për lidhjet ankorë
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           e.preventDefault();
-          
           const target = document.querySelector(this.getAttribute('href'));
           if (target) {
             window.scrollTo({
@@ -989,10 +775,9 @@
           }
         });
       });
-      
       // Event listener për butonin e mbylljes së shiritit reklamues
       document.querySelector('.promo-banner .close-btn').addEventListener('click', closePromoBanner);
     });
   </script>
 </body>
-</html> 
+</html>
